@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="adaugareanunturi.css">
+  <title>Adaugare Anunt</title>
+</head>
+<body style="background-color:#ccffcc">
+
+<div class="container">
+  <h2>Adaugare Anunt</h2>
+  <form id="anuntForm">
+    <label for="title">Titlu:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="tip">Tip:</label>
+    <input type="text" id="tip" name="tip" required>
+
+    <label for="rasa">Rasa:</label>
+    <input type="text" id="rasa" name="rasa" required>
+
+    <label for="gen">Gen:</label>
+    <input type="text" id="gen" name="gen" required>
+
+    <label for="culoare">Culoare:</label>
+    <input type="text" id="culoare" name="culoare" required>
+
+    <label for="varsta">Varsta:</label>
+    <input type="text" id="varsta" name="varsta" required>
+
+    <label for="oras">Oras:</label>
+    <input type="text" id="oras" name="oras" required>
+
+    <label for="adresa">Adresa:</label>
+    <input type="text" id="adresa" name="adresa" required>
+
+    <label for="description">Descriere:</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="image1">Imagine1:</label>
+    <input type="file" id="image1" name="image1" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
+
+
+    <label for="image2">Imagine2:</label>
+    <input type="file" id="image2" name="image2" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
+
+
+    <label for="image3">Imagine3:</label>
+    <input type="file" id="image3" name="image3" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
+
+
+    <label for="image1">Imagine4:</label>
+    <input type="file" id="image4" name="image4" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
+
+
+    <label for="image1">Imagine5:</label>
+    <input type="file" id="image5" name="image5" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
+
+    <button type="button" onclick="submitForm()">Adauga Anunt</button>
+    <button class="back-button" onclick="back()">Inapoi</button>
+  </form>
+</div>
+
+
+<script src="adaugareanunturi.js"></script>
+<script>
+  var token = localStorage.getItem('token');
+  if (!token) {
+    window.location.href = 'login.html';
+  }
+</script>
+</body>
+</html>

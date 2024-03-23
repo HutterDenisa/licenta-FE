@@ -1,0 +1,903 @@
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+body {
+  scroll-behavior: smooth;
+
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+
+
+.Contact {
+  width: 60%;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.info1,
+.info2 {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+input,
+textarea, button {
+  width: 80%;
+  padding: 15px;
+  margin: 15px 3px;
+  box-sizing: border-box;
+  border: 2px solid #ff9966;
+  border-radius: 4px;
+
+}
+
+button,
+input[type="reset"] {
+  background-color: #5cd65c;
+  color: white;
+  padding: 10px 10px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 7px;
+  cursor: auto;
+
+}
+
+.map.h1{
+ margin-left: 500px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #45a049;
+}
+
+textarea {
+  height: 100px;
+}
+
+/* Optional: Add some styling for responsiveness */
+@media only screen and (max-width: 600px) {
+  .Contact {
+    width: 60%;
+  }
+}
+
+
+
+
+
+.mapafooter{
+  height: 450px;
+  width: 400px;
+}
+
+
+
+.inregistrare{
+ width: 100%;
+  height:80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 2px 0px 3px grey;
+  text-align: center;
+
+}
+
+
+
+.Pagina.Logo{
+
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+
+
+
+.Content{
+  width: 100%;
+  height: 30px;
+  line-height: 70px;
+  z-index: 2;
+  color: white;
+
+}
+
+.content-bg {
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control the background opacity */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 13%;
+  z-index: 1;
+}
+
+.content2-bg{
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control the background opacity */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 13%;
+  z-index: 1;
+}
+
+
+
+.Content ul{
+    list-style: none;
+    text-align: center;
+
+}
+
+.Content ul li{
+    display: inline-block;
+    width: 200px;
+    position: relative;
+    z-index: 99;
+
+}
+
+
+
+
+
+
+
+.Content2 ul{
+  list-style: none;
+  text-align: center;
+
+}
+
+.Content2 ul li{
+  display: inline-block;
+  width: 200px;
+  position: relative;
+  z-index: 99;
+
+}
+
+
+
+
+.infodespre{
+    width:200px;
+    height:100px;
+    display: table;
+
+}
+
+
+.infodespre.p {
+text-align: center;
+vertical-align: middle;
+display: table-cell;
+}
+
+
+
+.footermenu ul li{
+  display: inline-block;
+  padding-top: 20px;
+  margin-right: 40px;
+  padding-bottom: 20px;
+}
+
+.footermenu {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #e6e6e6;
+  padding: 0px;
+  text-align: center;
+ margin-top: 0px;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+
+}
+
+.footermenu ul li:hover>ul{
+  display: block;
+}
+
+
+.footermenu ul ul li{
+  background-color: #333333;
+  border-bottom: 1px solid orange;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.footermenu ul ul{
+  position: absolute;
+  top:70px;
+  left: 0;
+  display: none;
+}
+
+.footermenu ul li a{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.footermenu ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footermenu ul li a:hover{
+  color: orange;
+}
+
+
+
+
+
+.Content2 ul li:hover>ul{
+  background-color: #4d4d4d;
+  display: block;
+}
+
+
+.Content2 ul li a{
+  text-decoration: none;
+  color: white;
+  font-weight: 50;
+  display: block;
+
+}
+
+.Content2 ul li a:hover{
+  color: orange;
+}
+
+.Content2 ul ul{
+  position: absolute;
+  top:70px;
+  left: 0;
+  display: none;
+
+}
+
+.Content2 ul ul li{
+
+  border-bottom: 1px solid orange;
+  border-radius: 0px 10px 10px 0px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+.Content ul li:hover>ul{
+  background-color: #4d4d4d;
+  display: block;
+}
+
+
+  .Content ul li a{
+  text-decoration: none;
+  color: white;
+  font-weight: 50;
+  display: block;
+
+}
+
+.Content ul li a:hover{
+  color: orange;
+}
+
+.Content ul ul{
+ position: absolute;
+  top:70px;
+  left: 0;
+  display: none;
+
+}
+
+.Content ul ul li{
+
+  border-bottom: 1px solid orange;
+  border-radius: 0px 10px 10px 0px;
+
+
+
+}
+
+
+.text{
+  width: 100%;
+  height: 50vh;
+
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+}
+
+
+.container {
+  padding-top: 5px;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(128, 128, 128, 0.5);
+  font-size: larger;
+  border-radius: 10px 10px 10px 10px;
+  padding-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.Pagina.Logo.h1{
+
+  color: orange;
+  font-size: 2rem;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+.Pagina.Logo.p{
+
+  color:grey;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+
+.inregistrare.leftside{
+  flex-basis: 50%;
+  letter-spacing: 2px;
+  color: black;
+
+}
+
+.inregistrare.leftside a:hover{
+  text-decoration: none;
+  color: orange;
+  font-weight: bold;
+  margin: 0px 5px;
+}
+
+header{
+  width: 100%;
+  height: 12vh;
+
+}
+
+a {
+  color: inherit;
+  font-size: large;
+  text-decoration: none;
+}
+
+
+
+
+
+
+.informatii ul{
+
+  list-style: none;
+  text-align: left;
+  padding-left: 0;
+  font-size: large;
+
+}
+
+.informatii ul li{
+
+  float: inherit;
+  width: 300px;
+  position: relative;
+  z-index: 2;
+  font-size: large;
+}
+
+/*
+.photocontainer{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: red;
+  border-radius: 10px 10px 10px 10px;
+  width: 300px;
+
+  height: 300px;
+}
+.obiect{
+  padding-left: 0px;
+  width: auto;
+  background-color: #2C9CFF;
+  border-radius: 10px 10px 10px 10px;
+
+}
+
+.imagine {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container2{
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.imagine img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+
+*/
+
+.container2 {
+  display: flex;
+  justify-content: center; /* Centering the rows */
+  padding: 50px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the content within the row */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.obiect {
+  padding-left: 0px;
+  width: calc(33.33% - 20px); /* Adjust the width for 3 items per row */
+  margin: 10px;
+  background-color: #2C9CFF;
+  border-radius: 10px;
+}
+
+.photocontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.imagine {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagine img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+
+
+.img .feature-poza{
+  padding-top: 0;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Desktop size */
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.navbar-comp {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.navbar-link {
+  margin-left: 15px;
+}
+
+.sidebar {
+  background: #F6F8FA;
+  height: 100%;
+}
+
+.card {
+  background: #2C9CFF;
+  min-width: 200px;
+  min-height: 100px;
+  display: block;
+  margin: 20px;
+  color: white;
+}
+
+.searchbar {
+  display: block;
+  min-width: 150px;
+  margin: auto;
+  border: 2px solid gray;
+  border-radius: 1.25rem;
+  padding: 0.5rem;
+}
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
