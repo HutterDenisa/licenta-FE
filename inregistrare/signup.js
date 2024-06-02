@@ -5,17 +5,17 @@ function submitForm() {
   var password = document.getElementById('password').value;
   var password2 = document.getElementById('password2').value;
 
-
-  if (name.length < 2) {
-    alert('Numele trebuie să conțină cel puțin 2 caractere.');
-    return;
-  }
-
-
-  if (!isValidEmail(email)) {
-    alert('Introduceți o adresă de email validă.');
-    return;
-  }
+  //
+  // if (name.length < 2) {
+  //   alert('Numele trebuie să conțină cel puțin 2 caractere.');
+  //   return;
+  // }
+  //
+  //
+  // if (!isValidEmail(email)) {
+  //   alert('Introduceți o adresă de email validă.');
+  //   return;
+  // }
 
 
   /*if (!isValidPassword(password)) {
@@ -64,4 +64,8 @@ function isValidEmail(email) {
 function isValidPassword(password) {
   var passwordRegex = /^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-_]).{8,}$/;
   return passwordRegex.test(password);
+}
+
+function toLogin(){
+  window.location.href='../conectare/login.html';
 }

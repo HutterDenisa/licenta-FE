@@ -1,101 +1,10 @@
 html, body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-.navbar-comp {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: white;
-}
-
-.navbar-link {
-  margin-right: 20px;
-}
-
-#searchButton {
-
-  border: #333;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin-top: 10px;
-  border-radius: 10px;
-  background-color: #ffa31a;
-  color: black;
-}
-
-
-
-
-.container {
-  margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.anunt {
-  flex: 0 0 calc(30% - 20px);
-  margin: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-  background-color: rgba(255, 214, 51, 0.9);
-  border-radius: 10px;
-}
-
-.h2 {
-  align-self: center;
-}
-
-.p {
-  text-align: left;
-}
-
-@media only screen and (max-width: 768px) {
-  .navbar-link {
-    margin-right: 10px;
-  }
-
-  .anunt {
-    flex: 0 0 100%;
-    margin: 10px 0;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-
-  .navbar-comp {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: flex-start;
-    background-color: #ffd633;
-  }
-
-  .navbar-link {
-    margin-left: 200px;
-    margin-top: 10px;
-    text-align: center;
-    font-size: larger;
-    text-decoration: none;
-  }
-
-  .navbar-comp a:hover {
-    color: white;
-  }
-
-
-}
-
+/* Navigation bar */
 .navbar-comp {
   display: flex;
   flex-direction: row;
@@ -109,19 +18,117 @@ html, body {
   margin-right: 20px;
   font-size: larger;
   text-decoration: none;
+  color: inherit;
 }
 
-.navbar-comp a:hover {
+.navbar-link:hover {
   color: white;
 }
 
-
-a {
-  color: inherit;
-  text-decoration: none;
-
+/* Search button */
+#searchButton {
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #ffa31a;
+  color: black;
+  border: none;
 }
 
-* {
-  box-sizing: border-box;
+/* Container for anunturi */
+.container {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* Individual anunt style */
+.anunt {
+  flex: 0 0 calc(30% - 20px);
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: rgba(255, 214, 51, 0.9);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.anunt h2 {
+  margin: 0;
+}
+
+/* Images within an anunt */
+.images-container {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.anunt-image {
+  width: 100%;
+  display: none; /* hide by default */
+  margin-top: 10px;
+}
+
+.anunt-image.active {
+  display: block; /* show the active image */
+}
+
+/* Like button */
+.like-button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #ffa31a;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.like-button:hover {
+  background-color: #e69500;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+  .navbar-link {
+    margin-right: 10px;
+  }
+
+  .anunt {
+    flex: 0 0 100%;
+    margin: 10px 0;
+  }
+
+  .navbar-comp {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.anunt p {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.anunt img {
+  margin-right: 10px;
+}
+
+
+.user-element {
+  display: flex;
+  align-items: center; /* Alinează vertical textul și iconul */
+  gap: 0px; /* Mărește spațiul între text și icon */
+  font-size: 16px; /* Ajustează dimensiunea textului, dacă este necesar */
+  margin-bottom: 10px; /* Asigură spațiu sub text și icon */
+}
+
+.user-icon {
+  width: 34px; /* Ajustează lățimea iconului */
+  height: 24px; /* Ajustează înălțimea iconului */
+  vertical-align: middle; /* Asigură-te că iconul este centrat vertical cu textul */
 }

@@ -7,18 +7,32 @@ function initializePage() {
 
   const apiUrl = "http://localhost:8080/anunt";
 
+  const logoutButton = document.getElementById('logoutButton');
   logoutButton.addEventListener('click', function () {
     // Apelul funcției pentru deconectare
     logoutUser();
   });
 
   // Funcția pentru afișarea mesajului de bun venit
-  function displayWelcomeMessage(userName) {
+  function displayWelcomeMessage(userName, userRole) {
+    const welcomeContainer = document.getElementById('user-name');
     const welcomeMessage = document.createElement('h1');
-    welcomeMessage.textContent = `Bine ai venit, ${userName}!`;
-    welcomeMessage.style='text-align: center;';
-    document.getElementById('user-name').appendChild(welcomeMessage);
+    welcomeMessage.textContent = `Bine ai venit, ${userName}`;
+    welcomeMessage.style = 'text-align: center; display: inline;';  // Modificat pentru aliniere
+
+    // Adaugă mesajul de bun venit în container
+    welcomeContainer.appendChild(welcomeMessage);
+
+    // Verifică rolul utilizatorului și adaugă iconul dacă este necesar
+    if (userRole === "MEDIC" || userRole === "CENTRU") {
+      const icon = document.createElement('img');
+      icon.src = 'paw-icon.png';  // Verifică această cale
+      icon.alt = 'Paw Icon';
+      icon.style = 'width: 24px; height: 24px; margin-left: 10px; vertical-align: middle; display: inline;';
+      welcomeContainer.appendChild(icon);
+    }
   }
+
 
   // Funcția pentru a obține numele utilizatorului din server
   function getUserName(userId) {
@@ -33,17 +47,17 @@ function initializePage() {
         }
       })
       .then(userData => {
-        const userName = userData.username; // Asume că numele utilizatorului este disponibil în răspuns
+        const userName = userData.username; // Asumăm că numele utilizatorului este disponibil în răspuns
+        const userRole = userData.role; // Asumăm că rolul este de asemenea disponibil
         localStorage.setItem('userName', userName); // Salvează numele utilizatorului în Local Storage
-        displayWelcomeMessage(userName); // Afișează mesajul de bun venit
-        // Mută getAnunturi() aici pentru a te asigura că numele utilizatorului este disponibil înainte de a afișa anunțurile
+        displayWelcomeMessage(userName, userRole); // Modificată pentru a include rolul
         getAnunturi(userId);
       })
       .catch(error => console.error('Error fetching user data:', error));
   }
 
   function getAnunturi(userId) {
-    const url = userId ? `${apiUrl}/userId/${userId}` : apiUrl;
+    const url = `${apiUrl}/userId/${userId}`;
 
     fetch(url)
       .then(response => {
@@ -88,36 +102,37 @@ function initializePage() {
     const backendImageUrl = "http://localhost:8080/anunt/image/";
     const container = document.createElement('div');
     container.classList.add('anunt');
-    container.style='margin-left: 20px;';
-
 
     const titleElement = document.createElement('h2');
     titleElement.textContent = anunt.name;
 
     const imageElement = document.createElement('img');
-    const imagePath = anunt.path;
-    const imageName = imagePath.split('/').pop();
-    imageElement.src = backendImageUrl + imageName;
-    imageElement.alt = anunt.name;
+    if (anunt.imagePath1) {  // Verificăm dacă există calea imaginii
+      const imagePath = anunt.imagePath1;
+      const imageName = imagePath.split('/').pop();
+      imageElement.src = backendImageUrl + imageName;
+      imageElement.alt = anunt.name;
+    } else {
+      // Setează o imagine implicită în cazul în care anunt.imagePath1 este undefined
+      imageElement.src = 'path_to_default_image.jpg'; // Poți înlocui cu calea reală către imaginea implicită
+      imageElement.alt = 'Default Image';
+    }
 
     const descriptionElement = document.createElement('p');
     descriptionElement.textContent = `Descriere: ${anunt.description}`;
-    descriptionElement.style='text-align: left;';
-
+    descriptionElement.style.textAlign = 'left';
 
     const sellerNameElement = document.createElement('p');
-    sellerNameElement.textContent = `Nume Vanzator: ${anunt.user.name}`;
-    sellerNameElement.style='text-align: left;';
-
+    sellerNameElement.textContent = `Nume Vanzator: ${anunt.user ? anunt.user.name : 'undefined'}`;
+    sellerNameElement.style.textAlign = 'left';
 
     const emailElement = document.createElement('p');
-    emailElement.textContent = `Email: ${anunt.user.email}`;
-    emailElement.style='text-align: left; ';
-
+    emailElement.textContent = `Email: ${anunt.user ? anunt.user.email : 'undefined'}`;
+    emailElement.style.textAlign = 'left';
 
     const editButton = document.createElement('button');
     editButton.textContent = 'Editare';
-    editButton.style='border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px; margin-left: 20px;';
+    editButton.style = 'border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px; margin-left: 20px;';
     editButton.id = `editButton_${anunt.id}`;
     editButton.addEventListener('click', () => handleEditButtonClick(anunt.id));
 
@@ -128,7 +143,7 @@ function initializePage() {
     container.appendChild(emailElement);
 
     const likeButton = document.createElement('button');
-    likeButton.style='border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px;';
+    likeButton.style = 'border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px;';
     likeButton.textContent = `Like (${anunt.nrLikes})`;
     likeButton.id = `likeButton_${anunt.id}`;
     likeButton.addEventListener('click', () => handleLikeButtonClick(anunt.id));
@@ -137,7 +152,7 @@ function initializePage() {
     deleteButton.textContent = 'Ștergere';
     deleteButton.id = `deleteButton_${anunt.id}`;
     deleteButton.addEventListener('click', () => handleDeleteButtonClick(anunt.id));
-    deleteButton.style='border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px; margin-left: 20px;';
+    deleteButton.style = 'border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px; margin-left: 20px;';
 
     container.appendChild(likeButton);
     container.appendChild(editButton);
@@ -231,7 +246,6 @@ function initializePage() {
             `;
     }
   }
-
 
   getUserName(localStorage.getItem('userId'));
 }

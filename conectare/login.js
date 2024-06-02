@@ -4,11 +4,11 @@ function loginForm() {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
 
-
-  if (!isValidEmail(email)) {
-    alert('Introduceți o adresă de email validă.');
-    return;
-  }
+  //
+  // if (!isValidEmail(email)) {
+  //   alert('Introduceți o adresă de email validă.');
+  //   return;
+  // }
 
   /*if (!isValidPassword(password)) {
     alert('Parola trebuie să conțină cel puțin 8 caractere, cel puțin 1 literă mică, 1 literă mare, 1 cifră și 1 caracter special.');
@@ -67,5 +67,9 @@ function isValidEmail(email) {
 function isValidPassword(password) {
   var passwordRegex = /^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-_]).{8,}$/;
   return passwordRegex.test(password);
+}
+
+function toSignup(){
+  window.location.href='../inregistrare/signup.html';
 }
 

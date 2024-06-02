@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Signup</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Sign-Up Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Mono:wght@500&display=block" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="signup.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class="container">
-<div class="header">
-  <h2>Inregistrare</h2>
+<body class="logged-out not-pro not-player not-self not-team not-on-team no-hiring sign-in">
+<div id="main-container">
+  <section class="auth-sidebar">
+    <div class="auth-sidebar-content">
+      <img src="adoptie.png" style="height: 100%">
+      <!-- <video autoplay muted loop>
+         <source src="video2.mp4">
+       </video>-->
+    </div>
+  </section>
+
+
+  <section class="auth-main-content" style="margin-left: 140px">
+    <h1 style="font-family: sans-serif;margin-left: 200px;margin-bottom: 50px">Bine ai venit!</h1>
+    <form id="signupForm" action="../conectare/login.html" method="post" onsubmit="submitForm()">
+      <label for="name">Nume:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required>
+
+      <label for="password">Parola:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="password2">Confirmare parola:</label>
+      <input type="password" id="password2" name="password2" required>
+
+      <button type="submit">Inregistrare</button>
+      <h3 style="text-align: center;font-family: sans-serif">Ai cont?</h3>
+      <button type="button" onclick="toLogin()">Conectare</button>
+    </form>
+  </section>
 </div>
-
-<form method="post">
-  <div class="input-group">
-    <label>Nume de utilizator</label>
-    <input type="text" name="username" id="name">
-  </div>
-  <div class="input-group">
-    <label>Email</label>
-    <input type="email" name="email" id="email">
-  </div>
-  <div class="input-group">
-    <label>Parola</label>
-    <input type="password" name="password_1" id="password">
-  </div>
-  <div class="input-group">
-    <label>Confirmare parola</label>
-    <input type="password" name="password_2" id="password2">
-  </div>
-  <div class="input-group">
-    <button type="button" class="btn" name="reg_user" onclick="submitForm()">Inregistrare</button>
-  </div>
-  <p>
-    Ai deja un cont? <a href="../conectare/login.js">Conectare</a>
-  </p>
-</form>
-
 <script src="signup.js"></script>
 </body>
 </html>

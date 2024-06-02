@@ -18,16 +18,16 @@ html, body {
   margin-right: 20px;
 }
 
-
 .container {
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 10px; /* Add gap to handle spacing between items */
 }
 
 .anunt {
-  flex: 0 0 calc(30% - 20px);
+  flex: 1 1 calc(33.333% - 20px); /* Ensure max 3 items per row */
   margin: 10px;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -35,6 +35,12 @@ html, body {
   text-align: center;
   background-color: rgba(255, 214, 51, 0.9);
   border-radius: 10px;
+  max-width: 300px; /* Optionally limit the max width */
+}
+
+.anunt img {
+  max-width: 100%; /* Ensure images are responsive */
+  height: auto;
 }
 
 .h2 {
@@ -47,15 +53,15 @@ html, body {
 
 @media only screen and (min-width: 768px) {
   .container {
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .anunt {
-    flex: 0 0 calc(30% - 20px);
+    flex: 1 1 calc(33.333% - 20px); /* Ensure max 3 items per row */
   }
 }
-@media only screen and (max-width: 768px) {
 
+@media only screen and (max-width: 768px) {
   .navbar-comp {
     flex-direction: column;
     align-items: center;
@@ -78,7 +84,9 @@ html, body {
     color: white;
   }
 
-
+  .anunt {
+    flex: 1 1 100%; /* Ensure full width on small screens */
+  }
 }
 
 .navbar-comp {
@@ -100,7 +108,6 @@ html, body {
   color: white;
 }
 
-
 a {
   color: inherit;
   text-decoration: none;
@@ -112,7 +119,6 @@ a {
 }
 
 #logoutButton {
-
   border: #333;
   padding: 10px 15px;
   cursor: pointer;
@@ -121,4 +127,10 @@ a {
   background-color: #ffa31a;
   color: black;
   height: 45px;
+}
+#user-name {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

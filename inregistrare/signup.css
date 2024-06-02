@@ -1,64 +1,61 @@
 body {
-  background-color: #c0e6ff;
-  font-family: 'Arial', sans-serif;
-  transition: background-color 0.5s ease;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
+#main-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.header {
+.auth-sidebar {
+  width: 40%;
+  background: #000;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.auth-sidebar-content {
   text-align: center;
-}
-
-form {
+  color: #fff;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #3498db;
-  border-radius: 5px;
-  width: 100%;
+.auth-main-content {
+  width: 50%;
   box-sizing: border-box;
-  background-color: #ecf0f1;
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  padding: 40px;
 }
 
-.input-group {
-  margin-bottom: 15px;
+#signupForm {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
 }
 
-.btn {
-  background-color: #3498db;
-  color: #ffffff;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
+label {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  width: 500px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 523px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #000;
+  color: #fff;
   cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #70db70;
-}
-
-.container:hover {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-}
-
-body:hover {
-  background-color: #c0e6ff;
 }

@@ -1,30 +1,82 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  min-height: 100vh;
-  background: #ecc6d9;;
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevents showing content outside the visible area */
+  margin: 0; /* Removes default margins */
+  padding: 0; /* Removes default padding */
+  background: #ecc6d9;
+  font-family: Arial, sans-serif;
 }
-.container{
+
+.main-container {
+  display: flex;
+  justify-content: space-around; /* Ensures balanced distribution */
+  align-items: center; /* Aligns items vertically */
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel-container {
+  position: relative;
+  width: 350px; /* Adjust based on your wheel size */
+  height: 350px; /* Should be a square */
+}
+
+.form-container {
+  width: 300px;
+  background: #f8d7e8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  background: #d279a6;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container {
   height: 350px;
   width: 350px;
-  background:#d279a6;
+  background: #d279a6;
   position: relative;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 0 15px #602040;
-  transition: 3s all;
+  transition: transform 5s ease-out;
 }
-.container div{
+
+.container div {
   height: 50%;
   width: 200px;
-  clip-path: polygon(100% 0,50% 100%, 0 0);
+  clip-path: polygon(100% 0, 50% 100%, 0 0);
   transform: translateX(-50%);
   transform-origin: bottom;
   position: absolute;
@@ -35,66 +87,91 @@ body{
   font-size: 20px;
   font-family: monospace;
   font-weight: 1000;
-  color:#660066;
+  color: #660066;
   writing-mode: vertical-rl;
 }
-.container .part1{
-  background:  #d279a6;
+
+.container .part1 {
+  background: #d279a6;
   left: 50%;
 }
-.container .part2{
-  background:#b3ccff;
+
+.container .part2 {
+  background: #b3ccff;
   transform: rotate(60deg);
 }
-.container .part3{
-  background:  #d279a6;
+
+.container .part3 {
+  background: #d279a6;
   transform: rotate(120deg);
 }
-.container .part4{
+
+.container .part4 {
   background: #b3ccff;
   transform: rotate(180deg);
 }
-.container .part5{
+
+.container .part5 {
   background: #d279a6;
   transform: rotate(240deg);
 }
-.container .part6{
+
+.container .part6 {
   background: #b3ccff;
   transform: rotate(300deg);
 }
 
-
-
-.mid{
-  height: 25px;
-  width: 25px;
+.mid {
+  height: 20px; /* Smaller size for the mid circle */
+  width: 20px; /* Smaller size for the mid circle */
   border-radius: 50%;
+  background: #660066;
   position: absolute;
-  background:#660066;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
-#spin{
-  height: 60px;
-  width: 200px;
-  background:#d279a6;
+
+.stoper {
+  height: 20px; /* Smaller size for the stopper */
+  width: 20px; /* Smaller size for the stopper */
+  background: #ffffff;
   position: absolute;
-  margin-top: 600px;
-  font-size: 30px;
-  color: white;
-  font-weight: 1000;
-  letter-spacing: 4px;
-  border: 1px solid white;
-  cursor: pointer;
-  box-shadow: 0 5px 10px gray;
-  transition: 0.2s all;
+  top: -10px; /* Position it above the wheel */
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg); /* Center horizontally and rotate */
+  clip-path: polygon(50% 0, 0% 100%, 100% 100%);
+  z-index: 3;
 }
-#spin:hover{
-  box-shadow: none;
+
+.result-container {
+  display: none;
+  align-items: center;
+  width: 300px;
+  background: #f8d7e8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.stoper{
-  height: 55px;
-  width: 45px;
-  background:#ffffff;
-  position: absolute;
-  clip-path: polygon(100% 0,50% 100%, 0 0);
-  margin-top: -350px;
+
+.anunt {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.anunt h2 {
+  margin-bottom: 10px;
+}
+
+.anunt img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.anunt p {
+  margin-bottom: 8px;
 }
