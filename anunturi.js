@@ -54,6 +54,15 @@ function initializePage() {
     descriptionElement.textContent = `Descriere: ${anunt.description}`;
     container.appendChild(descriptionElement);
 
+    const details = ['tip', 'rasa', 'gen', 'culoare', 'varsta', 'oras', 'adresa', 'tipAnunt'];
+    details.forEach(detail => {
+      if (anunt[detail]) {
+        const detailElement = document.createElement('p');
+        detailElement.textContent = `${detail.charAt(0).toUpperCase() + detail.slice(1)}: ${anunt[detail]}`;
+        container.appendChild(detailElement);
+      }
+    });
+
     const userElement = document.createElement('p');
     userElement.textContent = `Utilizator: ${anunt.user.username}`;
     if (anunt.user.role === "MEDIC" || anunt.user.role === "CENTRU") {
