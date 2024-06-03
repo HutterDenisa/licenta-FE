@@ -174,26 +174,23 @@ function initializePage() {
   }
 
 
-
-
-
   function handleLikeButtonClick(anuntId) {
     const likeUrl = `${apiUrl}/like/${anuntId}`;
 
     fetch(likeUrl, { method: 'PUT' })
-      .then(response => response.json())
-      .then(updatedAnunt => {
-        console.log(`Like status changed for Anunt ${anuntId}. New nrLikes: ${updatedAnunt.nrLikes}`);
-        // Actualizează interfața cu noul număr de "like"-uri
-        updateLikeButton(anuntId, updatedAnunt.nrLikes);
-      })
-      .catch(error => console.error('Eroare la adăugarea like-ului:', error));
+        .then(response => response.json())
+        .then(updatedAnunt => {
+          console.log(`Like status changed for Anunt ${anuntId}. New nrLikes: ${updatedAnunt.nrLikes}`);
+          // Actualizează interfața cu noul număr de "like"-uri
+          updateLikeButton(anuntId, updatedAnunt.nrLikes, updatedAnunt.likedByCurrentUser);
+        })
+        .catch(error => console.error('Eroare la adăugarea like-ului:', error));
   }
 
-  function updateLikeButton(anuntId, nrLikes) {
+  function updateLikeButton(anuntId, nrLikes, likedByCurrentUser) {
     const likeButton = document.getElementById(`likeButton_${anuntId}`);
     if (likeButton) {
-      likeButton.textContent = nrLikes > 0 ? `Unlike (${nrLikes})` : `Like (${nrLikes})`;
+      likeButton.textContent = likedByCurrentUser ? `Unlike (${nrLikes})` : `Like (${nrLikes})`;
     }
   }
 

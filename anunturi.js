@@ -75,35 +75,33 @@ function initializePage() {
     container.appendChild(userElement);
 
     const likeButton = document.createElement('button');
+    likeButton.style = 'border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px;';
     likeButton.textContent = `Like (${anunt.nrLikes})`;
-    likeButton.addEventListener('click', () => toggleLike(anunt.id));
+    likeButton.id = `likeButton_${anunt.id}`;
+    likeButton.addEventListener('click', () => handleLikeButtonClick(anunt.id));
     container.appendChild(likeButton);
 
     return container;
   }
 
-  function toggleLike(anuntId) {
+
+  function handleLikeButtonClick(anuntId) {
     const likeUrl = `${apiUrl}/like/${anuntId}`;
+
     fetch(likeUrl, { method: 'PUT' })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok.');
-        }
-        return response.json();
-      })
-      .then(updatedAnunt => {
-        console.log(`Like status changed for Anunt ${anuntId}. New nrLikes: ${updatedAnunt.nrLikes}`);
-        updateLikeButton(anuntId, updatedAnunt.nrLikes);
-      })
-      .catch(error => {
-        console.error('Error when liking an announcement:', error);
-      });
+        .then(response => response.json())
+        .then(updatedAnunt => {
+          console.log(`Like status changed for Anunt ${anuntId}. New nrLikes: ${updatedAnunt.nrLikes}`);
+          // Actualizează interfața cu noul număr de "like"-uri
+          updateLikeButton(anuntId, updatedAnunt.nrLikes, updatedAnunt.likedByCurrentUser);
+        })
+        .catch(error => console.error('Eroare la adăugarea like-ului:', error));
   }
 
-  function updateLikeButton(anuntId, nrLikes) {
+  function updateLikeButton(anuntId, nrLikes, likedByCurrentUser) {
     const likeButton = document.getElementById(`likeButton_${anuntId}`);
     if (likeButton) {
-      likeButton.textContent = `Like (${nrLikes})`;
+      likeButton.textContent = likedByCurrentUser ? `Unlike (${nrLikes})` : `Like (${nrLikes})`;
     }
   }
 
