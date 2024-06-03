@@ -1,3 +1,24 @@
+/** @type {typeof import('sockjs-client')} */
+var SockJS;
+document.addEventListener("DOMContentLoaded", function() {
+  var socket = new SockJS('http://localhost:8080/ws');
+  var stompClient = Stomp.over(socket);
+
+  stompClient.connect({}, function(frame) {
+    console.log('Connected: ' + frame);
+    stompClient.subscribe('/topic/notifications', function(notification) {
+      const similarAds = JSON.parse(notification.body);
+      let message = "Am găsit " + similarAds.length + " anunț(uri) similar(e): \n";
+      similarAds.forEach(ad => {
+        message += "Titlul: " + ad.title + ", Postat de: " + ad.username + ", Email: " + ad.email +  "\n";
+      });
+      alert(message);
+    });
+  }, function(error) {
+    console.log('Connection error: ' + error);
+  });
+});
+
 function submitForm() {
   var userId = getUserId();
   console.log(userId);
