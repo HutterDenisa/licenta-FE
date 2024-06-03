@@ -66,15 +66,6 @@ html, body {
   margin-top: 10px;
 }
 
-.anunt-image {
-  width: 100%;
-  display: none; /* hide by default */
-  margin-top: 10px;
-}
-
-.anunt-image.active {
-  display: block; /* show the active image */
-}
 
 /* Like button */
 .like-button {
@@ -115,7 +106,8 @@ html, body {
 }
 
 .anunt img {
-  margin-right: 10px;
+  max-width: 100%; /* Ensure images are responsive */
+  height: auto;
 }
 
 
