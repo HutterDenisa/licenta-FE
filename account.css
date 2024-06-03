@@ -93,9 +93,9 @@ html, body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #ffd633;
+  height: 200px;
 }
 
 .navbar-link {

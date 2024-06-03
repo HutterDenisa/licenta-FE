@@ -128,42 +128,30 @@
       },
       body: formData,
     })
-      .then(response => {
-        console.log(response);
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Failed to submit form. Server returned ' + response.status);
-        }
-      })
-      .then(data => {
-        console.log(data);
-        console.log('Anunt salvat cu succes:', data);
-        alert('Anunt salvat cu succes!');
-      })
-      .catch(error => {
-        console.error('Error occurred while submitting form:', error.message);
-        if (error instanceof TypeError) {
-          console.error('TypeError: There was a problem with the data types.');
-        } else if (error instanceof SyntaxError) {
-          console.error('SyntaxError: There was a syntax error in the code.');
-        } else if (error instanceof NetworkError) {
-          console.error('NetworkError: Failed to connect to the server.');
-        } else {
-          console.error('Unknown error occurred:', error.message);
-        }
-      });
-  }
-
-  function getUserId() {
-    var userId = localStorage.getItem('userId');
-    return userId;
-  }
-
-  function back(){
-    window.location.href = 'index.html';
+            .then(response => {
+              console.log(response);
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error('Failed to submit form. Server returned ' + response.status);
+              }
+            })
+            .then(data => {
+              console.log(data);
+              console.log('Anunt salvat cu succes:', data);
+              alert('Anunt salvat cu succes!');
+            })
+            .catch(error => {
+              console.error('Error occurred while submitting form:', error.message);
+              if (error instanceof TypeError) {
+                console.error('TypeError: There was a problem with the data types.');
+              } else if (error instanceof SyntaxError) {
+                console.error('SyntaxError: There was a syntax error in the code.');
+              } else if (error instanceof NetworkError) {
+                console.error('NetworkError: Failed to connect to the server.');
+              } else {
+                console.error('Unknown error occurred:', error.message);
+              }
+            });
   }
 </script>
-
-</body>
-</html>

@@ -122,9 +122,23 @@ function initializePage() {
     descriptionElement.textContent = `Descriere: ${anunt.description}`;
     descriptionElement.style.textAlign = 'left';
 
+    container.appendChild(titleElement);
+    container.appendChild(imageElement);
+
+    const details = ['tip', 'rasa', 'gen', 'culoare', 'varsta', 'oras', 'adresa', 'tipAnunt'];
+    details.forEach(detail => {
+          if (anunt[detail]) {
+              const detailElement = document.createElement('p');
+              detailElement.textContent = `${detail.charAt(0).toUpperCase() + detail.slice(1)}: ${anunt[detail]}`;
+              detailElement.style.textAlign = 'left';
+              container.appendChild(detailElement);
+          }
+    });
+
     const sellerNameElement = document.createElement('p');
-    sellerNameElement.textContent = `Nume Vanzator: ${anunt.user ? anunt.user.name : 'undefined'}`;
+    sellerNameElement.textContent = `Nume Vanzator: ${anunt.user ? anunt.user.username : 'undefined'}`;
     sellerNameElement.style.textAlign = 'left';
+
 
     const emailElement = document.createElement('p');
     emailElement.textContent = `Email: ${anunt.user ? anunt.user.email : 'undefined'}`;
@@ -136,8 +150,6 @@ function initializePage() {
     editButton.id = `editButton_${anunt.id}`;
     editButton.addEventListener('click', () => handleEditButtonClick(anunt.id));
 
-    container.appendChild(titleElement);
-    container.appendChild(imageElement);
     container.appendChild(descriptionElement);
     container.appendChild(sellerNameElement);
     container.appendChild(emailElement);
@@ -160,6 +172,10 @@ function initializePage() {
 
     return container;
   }
+
+
+
+
 
   function handleLikeButtonClick(anuntId) {
     const likeUrl = `${apiUrl}/like/${anuntId}`;
