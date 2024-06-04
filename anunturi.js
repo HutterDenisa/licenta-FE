@@ -74,6 +74,10 @@ function initializePage() {
     }
     container.appendChild(userElement);
 
+    const emailElement = document.createElement('p');
+    emailElement.textContent = `Email: ${anunt.user.email}`;
+    container.appendChild(emailElement);
+
     const likeButton = document.createElement('button');
     likeButton.style = 'border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px;';
     likeButton.textContent = `Like (${anunt.nrLikes})`;

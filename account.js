@@ -259,7 +259,109 @@ function initializePage() {
             `;
     }
   }
+  getStatistica();
 
   getUserName(localStorage.getItem('userId'));
+}
+
+function displayStatistica(statistica) {
+  const ctx = document.getElementById('myChart').getContext('2d');
+
+  // Convert your string timestamps into Date objects
+  const timestamps = [
+    new Date(statistica.t1),
+    new Date(statistica.t2),
+    new Date(statistica.t3),
+    new Date(statistica.t4),
+    new Date(statistica.t5),
+    new Date(statistica.t6),
+    new Date(statistica.t7),
+    new Date(statistica.t8),
+    new Date(statistica.t9),
+    new Date(statistica.t10)
+  ];
+
+  const activityValues = [
+    statistica.act1,
+    statistica.act2,
+    statistica.act3,
+    statistica.act4,
+    statistica.act5,
+    statistica.act6,
+    statistica.act7,
+    statistica.act8,
+    statistica.act9,
+    statistica.act10
+  ];
+
+  // Create a line chart with time on x-axis and activity on y-axis
+  const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: timestamps,
+      datasets: [{
+        label: 'Activity Over Time',
+        data: activityValues,
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+    },
+    options: {
+      scales: {
+        x: {
+          type: 'time',
+          time: {
+            unit: 'minute',
+            displayFormats: {
+              minute: 'MMM D, h:mm a'
+            },
+            tooltipFormat: 'MMM D, h:mm:ss a'
+          },
+          title: {
+            display: true,
+            text: 'Time'
+          }
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Activity'
+          }
+        }
+      },
+      plugins: {
+        tooltip: {
+          mode: 'index',
+          intersect: false
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        }
+      }
+    }
+  });
+}
+
+
+function getStatistica() {
+  const userId = localStorage.getItem('userId');
+  const url = `http://localhost:8080/statistica/user/${userId}`;
+
+  fetch(url)
+      .then(response => {
+        console.log("Response status:", response.status);
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(`Request failed with status: ${response.status}`);
+        }
+      })
+      .then(data => {
+          displayStatistica(data); // Convert single object to an array
+      })
+      .catch(error => console.error('Eroare la obținerea datelor:', error));
 }
 document.addEventListener("DOMContentLoaded", initializePage);

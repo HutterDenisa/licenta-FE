@@ -24,7 +24,7 @@
 
   <section class="auth-main-content" style="margin-left: 140px">
     <h1 style="font-family: sans-serif;margin-left: 200px;margin-bottom: 50px">Conecteaza-te!</h1>
-    <form id="loginForm" action="" method="post" onsubmit="loginForm()">
+    <form id="loginForm" action="" method="post">
 
       <label for="email" >Email:</label>
       <input type="text" id="email" name="email" required>
@@ -32,7 +32,7 @@
       <label for="password">Parola:</label>
       <input type="password" id="password" name="password" required>
 
-      <button type="submit">Conectare</button>
+      <button type="button" onclick="loginForm()">Conectare</button>
       <h3 style="text-align: center;font-family: sans-serif">Nu ai cont?</h3>
       <button type="button" onclick="toSignup()">Inregistrare</button>
     </form>
