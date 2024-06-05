@@ -1,0 +1,126 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* Navigation bar */
+.navbar-comp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffd633;
+}
+
+.navbar-link {
+    margin-right: 20px;
+    font-size: larger;
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-link:hover {
+    color: white;
+}
+
+/* Search button */
+#searchButton {
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #ffa31a;
+    color: black;
+    border: none;
+}
+
+/* Container for anunturi */
+.container2 {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/* Individual anunt style */
+.eveniment {
+    flex: 0 0 calc(30% - 20px);
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: rgba(255, 214, 51, 0.9);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.eveniment h2 {
+    margin: 0;
+}
+
+/* Images within an anunt */
+.images-container {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* Like button */
+.like-button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #ffa31a;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.like-button:hover {
+    background-color: #e69500;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+    .navbar-link {
+        margin-right: 10px;
+    }
+
+    .eveniment {
+        flex: 0 0 100%;
+        margin: 10px 0;
+    }
+
+    .navbar-comp {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.eveniment p {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.eveniment img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto;
+}
+
+
+.user-element {
+    display: flex;
+    align-items: center; /* Alinează vertical textul și iconul */
+    gap: 0px; /* Mărește spațiul între text și icon */
+    font-size: 16px; /* Ajustează dimensiunea textului, dacă este necesar */
+    margin-bottom: 10px; /* Asigură spațiu sub text și icon */
+}
+
+.user-icon {
+    width: 34px; /* Ajustează lățimea iconului */
+    height: 24px; /* Ajustează înălțimea iconului */
+    vertical-align: middle; /* Asigură-te că iconul este centrat vertical cu textul */
+}

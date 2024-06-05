@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="adaugarevenimente.css">
+  <title>Adaugare Eveniment</title>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.0/dist/sockjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>
+  <script src="adaugarevenimente.js"></script>
+</head>
+<body style="background-color:#ccffcc">
+
+<div class="container2">
+  <h2>Adaugare Eveniment</h2>
+  <form id="anuntForm">
+    <label for="title">Titlu:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="oras">Oras:</label>
+    <input type="text" id="oras" name="oras" required>
+
+    <label for="locatie">Locatie:</label>
+    <input type="text" id="locatie" name="locatie" required>
+
+    <label for="descriere">Descriere:</label>
+    <input type="text" id="descriere" name="descriere" required>
+
+
+    <label for="image1">Imagine1:</label>
+    <input type="file" id="image1" name="image1" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
+
+
+    <button type="button" onclick="submitForm()">Adauga Eveniment</button>
+    <button class="back-button" onclick="back()">Inapoi</button>
+  </form>
+</div>
+
+
+
+</body>
+</html>
