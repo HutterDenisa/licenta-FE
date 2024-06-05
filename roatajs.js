@@ -14,6 +14,18 @@ async function fetchFilteredData(filters) {
   }
 }
 
+document.querySelectorAll('.form-container input').forEach(input => {
+  input.addEventListener('focus', function() {
+    this.style.boxShadow = '0 0 0 30px white inset'; // Forces the background to remain white
+    this.style.borderColor = '#f8d7e8'; // Sets focus border color
+  });
+  input.addEventListener('input', function() {
+    this.style.backgroundColor = 'white'; // Ensures the background stays white even after input
+    this.style.color = '#333'; // Ensures text color stays consistent
+  });
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById('filterForm');
   const container = document.querySelector(".container");

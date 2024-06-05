@@ -50,6 +50,11 @@ body, html {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  outline: none;  /* Disables the default focus outline */
+}
+
+.form-container input:focus {
+  border-color: #f8d7e8;  /* Soft pink border on focus */
 }
 
 .form-container button {
@@ -66,7 +71,7 @@ body, html {
 .container {
   height: 350px;
   width: 350px;
-  background: #4ed4c6;
+  background:#b3ccff;
   position: relative;
   border-radius: 50%;
   overflow: hidden;
@@ -104,7 +109,7 @@ body, html {
   font-size: 20px;
   font-family: monospace;
   font-weight: 1000;
-  color:#008276;
+  background: #b3ccff;
   writing-mode: vertical-rl;
 }
 
@@ -151,20 +156,30 @@ body, html {
 }
 
 
-.stoper {
-  height: 50px;  // Dimensiuni mai mici pentru un aspect subțire
-  width: 40px;
-  background: #ffd600;
-  position: absolute;
-  left: 50%;  // Centrat orizontal
-  transform: translate(-50%, -100%);  // Ajustează-l să se deplaseze în sus deasupra roții
-  clip-path: polygon(100% 0,50% 100%, 0 0);
-  z-index: 10;  // Asigură-te că este deasupra roții
-
-
-  margin-top: -350px;
+.stopper {
+  position: absolute; /* Ensures the stopper is positioned relative to the nearest positioned ancestor */
+  top: 50%; /* Centers it vertically */
+  left: 50%; /* Centers it horizontally */
+  transform: translate(-50%, -50%); /* Shifts the stopper back by half its width and height to truly center it */
+  width: 20px; /* Adjusts the width as needed */
+  height: 20px; /* Adjusts the height as needed */
+  border-radius: 50%; /* Makes the stopper circular */
+  background-color: black; /* Sets the color to black */
+  z-index: 2; /* Ensures it appears above other elements */
 }
 
+.triangle {
+  position: absolute;
+  top: -15px; /* Slightly higher to accommodate larger triangle */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 15px 0 15px; /* Larger triangle */
+  border-color: white transparent transparent transparent;
+  z-index: 3;
+}
 
 .result-container {
   display: none;

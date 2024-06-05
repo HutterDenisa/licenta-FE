@@ -373,6 +373,11 @@ function getStatistica() {
 
 
 
+
+
+
+
+
 //EVENIMENTE
 const apiUrl = "http://localhost:8080/eveniment";
 
@@ -498,6 +503,8 @@ function getEvenimente(query = '') {
 }
 
 function displayEvenimente(evenimente) {
+
+
   const container2 = document.getElementById('container2');
   container2.innerHTML = '';
   evenimente.forEach(eveniment => {
