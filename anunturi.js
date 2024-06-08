@@ -95,19 +95,21 @@ function initializePage() {
     fetch(likeUrl, { method: 'PUT' })
         .then(response => response.json())
         .then(updatedAnunt => {
-          console.log(`Like status changed for Anunt ${anuntId}. New nrLikes: ${updatedAnunt.nrLikes}`);
-          // Actualizează interfața cu noul număr de "like"-uri
-          updateLikeButton(anuntId, updatedAnunt.nrLikes, updatedAnunt.likedByCurrentUser);
+          console.log(`Like status changed for Anunt ${updatedAnunt.id}. New nrLikes: ${updatedAnunt.nrLikes}`);
+          updateLikeButton(anuntId, updatedAnunt.nrLikes);
         })
         .catch(error => console.error('Eroare la adăugarea like-ului:', error));
   }
 
-  function updateLikeButton(anuntId, nrLikes, likedByCurrentUser) {
+  function updateLikeButton(anuntId, nrLikes) {
     const likeButton = document.getElementById(`likeButton_${anuntId}`);
     if (likeButton) {
-      likeButton.textContent = likedByCurrentUser ? `Unlike (${nrLikes})` : `Like (${nrLikes})`;
+      likeButton.textContent = nrLikes > 0 ? `Unlike (${nrLikes})` : `Like (${nrLikes})`;
     }
   }
+
+
+
 
   function updateNavbar() {
     const token = localStorage.getItem('token');

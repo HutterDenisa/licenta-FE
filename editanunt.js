@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('title').value = anunt.name;
       document.getElementById('description').value = anunt.description;
       // Alte câmpuri pentru editare
-      document.getElementById('image').files[0] = anunt.path;
+      document.getElementById('image').files[0] = anunt.imaginePath1;
       // La submit, trimite actualizările către backend
       editAnuntForm.addEventListener('submit', function (event) {
         event.preventDefault();

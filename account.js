@@ -5,6 +5,20 @@ function initializePage() {
     window.location.href = 'conectare/login.html';
   }
 
+  fetch(`http://localhost:8080/users/user/${localStorage.getItem('userId')}`)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(`Request failed with status: ${response.status}`);
+        }
+      })
+      .then(userData => {
+        if(userData.role === "ADMIN")
+          window.location.href = "admin.html";
+      })
+      .catch(error => console.error('Error fetching user data:', error));
+
   const apiUrl = "http://localhost:8080/anunt";
 
   const logoutButton = document.getElementById('logoutButton');
@@ -176,7 +190,6 @@ function initializePage() {
 
   function handleLikeButtonClick(anuntId) {
     const likeUrl = `${apiUrl}/like/${anuntId}`;
-
     fetch(likeUrl, { method: 'PUT' })
         .then(response => response.json())
         .then(updatedAnunt => {
@@ -186,7 +199,6 @@ function initializePage() {
         })
         .catch(error => console.error('Eroare la adăugarea like-ului:', error));
   }
-
   function updateLikeButton(anuntId, nrLikes, likedByCurrentUser) {
     const likeButton = document.getElementById(`likeButton_${anuntId}`);
     if (likeButton) {
@@ -260,6 +272,7 @@ function initializePage() {
     }
   }
   getStatistica();
+
 
   getUserName(localStorage.getItem('userId'));
 }
@@ -354,17 +367,22 @@ function getStatistica() {
       .then(response => {
         console.log("Response status:", response.status);
         if (response.ok) {
-          return response.json();
+          return response.text().then(text => {
+            try {
+              return JSON.parse(text); // Manually parse the text to JSON
+            } catch (error) {
+              console.error('Error parsing JSON:', text);
+              throw new Error('Invalid JSON response');
+            }
+          });
         } else {
           throw new Error(`Request failed with status: ${response.status}`);
         }
       })
       .then(data => {
-          displayStatistica(data); // Convert single object to an array
+        displayStatistica(data);
       })
       .catch(error => console.error('Eroare la obținerea datelor:', error));
-
-
 }
 
 
@@ -373,230 +391,6 @@ function getStatistica() {
 
 
 
-
-
-
-
-
-//EVENIMENTE
-const apiUrl = "http://localhost:8080/eveniment";
-
-function displayStatisticaEvenimente(statisticaevenimente) {
-  const ctx = document.getElementById('myChart2').getContext('2d');
-
-  // Convert your string timestamps into Date objects
-  const timestamps = [
-    new Date(statisticaevenimente.t1),
-    new Date(statisticaevenimente.t2),
-    new Date(statisticaevenimente.t3),
-    new Date(statisticaevenimente.t4),
-    new Date(statisticaevenimente.t5),
-    new Date(statisticaevenimente.t6),
-    new Date(statisticaevenimente.t7),
-    new Date(statisticaevenimente.t8),
-    new Date(statisticaevenimente.t9),
-    new Date(statisticaevenimente.t10)
-  ];
-
-  const activityValues = [
-    statisticaevenimente.act1,
-    statisticaevenimente.act2,
-    statisticaevenimente.act3,
-    statisticaevenimente.act4,
-    statisticaevenimente.act5,
-    statisticaevenimente.act6,
-    statisticaevenimente.act7,
-    statisticaevenimente.act8,
-    statisticaevenimente.act9,
-    statisticaevenimente.act10
-  ];
-
-  // Create a line chart with time on x-axis and activity on y-axis
-  const myChart2 = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: timestamps,
-      datasets: [{
-        label: 'Activitate aprecieri evenimente',
-        data: activityValues,
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-      }]
-    },
-    options: {
-      scales: {
-        x: {
-          type: 'time',
-          time: {
-            unit: 'minute',
-            displayFormats: {
-              minute:'MMM D, h:mm'
-            },
-            tooltipFormat: 'MMM D, h:mm'
-          },
-          title: {
-            display: true,
-            text: 'Time'
-          }
-        },
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: 'Activity'
-          }
-        }
-      },
-      plugins: {
-        tooltip: {
-          mode: 'index',
-          intersect: false
-        },
-        hover: {
-          mode: 'nearest',
-          intersect: true
-        }
-      }
-    }
-  });
-}
-
-
-function getStatisticaEvenimente() {
-  const userId = localStorage.getItem('userId');
-  const url = `http://localhost:8080/statisticaeveniment/user/${userId}`;
-
-  fetch(url)
-      .then(response => {
-        console.log("Response status:", response.status);
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error(`Request failed with status: ${response.status}`);
-        }
-      })
-      .then(data => {
-        displayStatisticaEvenimente(data); // Convert single object to an array
-      })
-      .catch(error => console.error('Eroare la obținerea datelor:', error));
-
-
-}
-
-
-function getEvenimente(query = '') {
-  const url = query ? `${apiUrl}/search/${query}` : apiUrl;
-  fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Request failed with status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        displayEvenimente(data);
-      })
-      .catch(error => {
-        console.error('Error fetching announcements:', error);
-      });
-}
-
-function displayEvenimente(evenimente) {
-
-
-  const container2 = document.getElementById('container2');
-  container2.innerHTML = '';
-  evenimente.forEach(eveniment => {
-    container2.appendChild(createEvenimentElement(eveniment));
-  });
-}
-
-function createEvenimentElement(eveniment) {
-  const backendImageUrl = "http://localhost:8080/eveniment/image/";
-  const container2 = document.createElement('div');
-  container2.classList.add('eveniment');
-
-  const titleElement = document.createElement('h2');
-  titleElement.textContent = eveniment.name;
-  container2.appendChild(titleElement);
-
-  if (eveniment.imagePath1) {
-    const imageElement = document.createElement('img');
-    const imageName = eveniment.imagePath1.split('/').pop();
-    imageElement.src = `${backendImageUrl}${imageName}`;
-    imageElement.alt = 'Announcement Image';
-    container2.appendChild(imageElement);
-  }
-
-  const descriptionElement = document.createElement('p');
-  descriptionElement.textContent = `Descriere: ${eveniment.description}`;
-  container2.appendChild(descriptionElement);
-
-  const details = ['oras', 'locatie'];
-  details.forEach(detail => {
-    if (eveniment[detail]) {
-      const detailElement = document.createElement('p');
-      detailElement.textContent = `${detail.charAt(0).toUpperCase() + detail.slice(1)}: ${eveniment[detail]}`;
-      container2.appendChild(detailElement);
-    }
-  });
-
-  const userElement = document.createElement('p');
-  userElement.textContent = `Utilizator: ${eveniment.user.username}`;
-  if (eveniment.user.role === "MEDIC" || eveniment.user.role === "CENTRU") {
-    const icon = document.createElement('img');
-    icon.src = 'paw-icon.png'; // Verificați că calea este corectă
-    icon.alt = 'Paw Icon';
-    icon.className = 'user-icon';
-    userElement.appendChild(icon);
-  }
-  container2.appendChild(userElement);
-
-  const emailElement = document.createElement('p');
-  emailElement.textContent = `Email: ${eveniment.user.email}`;
-  container2.appendChild(emailElement);
-
-  const likeButton = document.createElement('button');
-  likeButton.style = 'border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px;';
-  likeButton.textContent = `Like (${eveniment.nrLikes})`;
-  likeButton.id = `likeButton_${eveniment.id}`;
-  likeButton.addEventListener('click', () => handleLikeButtonClickEveniment(anunt.id));
-  container2.appendChild(likeButton);
-
-  return container2;
-}
-
-
-function handleLikeButtonClickEveniment(evenimentId) {
-  const likeUrl = `${apiUrl}/like/${evenimentId}`;
-
-  fetch(likeUrl, { method: 'PUT' })
-      .then(response => response.json())
-      .then(updatedEveniment => {
-        console.log(`Like status changed for Eveniment ${evenimentId}. New nrLikes: ${updatedEveniment.nrLikes}`);
-        // Actualizează interfața cu noul număr de "like"-uri
-        updateLikeButtonEveniment(evenimentId, updatedEveniment.nrLikes, updatedEveniment.likedByCurrentUser);
-      })
-      .catch(error => console.error('Eroare la adăugarea like-ului:', error));
-}
-
-function updateLikeButtonEveniment(evenimentId, nrLikes, likedByCurrentUser) {
-  const likeButton = document.getElementById(`likeButton_${evenimentId}`);
-  if (likeButton) {
-    likeButton.textContent = likedByCurrentUser ? `Unlike (${nrLikes})` : `Like (${nrLikes})`;
-  }
-}
-
-getStatisticaEvenimente();
-
-// Initialize the page by fetching all announcements
-getEvenimente();
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", initializePage);
+ document.addEventListener("DOMContentLoaded", initializePage);
 
 

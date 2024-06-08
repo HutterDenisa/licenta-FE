@@ -82,32 +82,32 @@ function initializePage() {
         likeButton.style = 'border: #333; padding: 10px 15px; cursor: pointer; margin-top: 10px; border-radius: 10px; background-color: #ffa31a;  color: black; height: 35px;';
         likeButton.textContent = `Like (${eveniment.nrLikes})`;
         likeButton.id = `likeButton_${eveniment.id}`;
-        likeButton.addEventListener('click', () => handleLikeButtonClickEveniment(eveniment.id));
+        likeButton.addEventListener('click', () => handleLikeButtonClick(eveniment.id));
         container2.appendChild(likeButton);
 
         return container2;
     }
 
 
-    function handleLikeButtonClickEveniment(evenimentId) {
+    function handleLikeButtonClick(evenimentId) {
         const likeUrl = `${apiUrl}/like/${evenimentId}`;
 
         fetch(likeUrl, { method: 'PUT' })
             .then(response => response.json())
             .then(updatedEveniment => {
                 console.log(`Like status changed for Eveniment ${evenimentId}. New nrLikes: ${updatedEveniment.nrLikes}`);
-                // Actualizează interfața cu noul număr de "like"-uri
-                updateLikeButtonEveniment(evenimentId, updatedEveniment.nrLikes, updatedEveniment.likedByCurrentUser);
+                updateLikeButton(evenimentId, updatedEveniment.nrLikes);
             })
             .catch(error => console.error('Eroare la adăugarea like-ului:', error));
     }
 
-    function updateLikeButtonEveniment(evenimentId, nrLikes, likedByCurrentUser) {
+    function updateLikeButton(evenimentId, nrLikes) {
         const likeButton = document.getElementById(`likeButton_${evenimentId}`);
         if (likeButton) {
-            likeButton.textContent = likedByCurrentUser ? `Unlike (${nrLikes})` : `Like (${nrLikes})`;
+            likeButton.textContent = nrLikes > 0 ? `Unlike (${nrLikes})` : `Like (${nrLikes})`;
         }
     }
+
 
     function updateNavbar() {
         const token = localStorage.getItem('token');

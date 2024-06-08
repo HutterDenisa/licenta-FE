@@ -1,0 +1,83 @@
+html, body {
+
+    background-color: #ffd633;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    background-color: rgba(255, 255, 230, 0.5);
+    border-radius: 10px;
+    padding: 40px;
+    margin: 0 auto;
+    margin-top: 90px;
+}
+
+.editEvenimentForm {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+}
+
+label {
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+}
+
+input,
+textarea{
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button, back_button {
+    padding: 15px 30px;
+    border-radius: 4px;
+    background-color: #ffd633;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+button:hover, back_button:hover {
+    background-color: #ffe6b3;
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 8px;
+    }
+
+    button, back_button {
+        padding: 15px 30px;
+        border-radius: 4px;
+        background-color: #ffd633;
+        color: black;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
+}

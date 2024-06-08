@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="editEveniment.css">
+    <title>Editare Eveniment</title>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center;">Editare Eveniment</h1>
+
+    <form id="editEvenimentForm">
+        <label for="title">Titlu:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="description">Descriere:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="oras">Oras:</label>
+        <input type="text" id="oras" name="oras" required>
+
+        <label for="locatie">Locatie:</label>
+        <input id="locatie" name="locatie" required></input>
+
+
+        <label for="image">Imagine:</label>
+        <input type="file" id="image" name="image" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
+
+        <button type="submit">Salvează modificările</button>
+        <button class="back-button" onclick="back()">Inapoi</button>
+
+    </form>
+</div>
+
+<script src="editEveniment.js"></script>
+</body>
+</html>
