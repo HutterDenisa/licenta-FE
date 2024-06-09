@@ -8,17 +8,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-<div class="navbar-comp">
+<div id="navbar">
   <a class="navbar-link" href="#anunturi">Anunturi</a>
-  <a class="navbar-link" href="#users">Stergere Useri</a>
+  <a class="navbar-link" href="#evenimente">Evenimente</a>
+  <a class="navbar-link" href="#users">Useri</a>
 </div>
+
 <div class="container">
   <section id="anunturi">
     <h1>Anunturi</h1>
+    <div class="search-bar">
+      <input type="text" id="search-anunturi" placeholder="Cauta anunturi">
+      <button onclick="searchAnunturi()">Cauta</button>
+    </div>
     <div id="anunturi-container"></div>
+  </section>
+  <section id="evenimente">
+    <h1>Evenimente</h1>
+    <div class="search-bar">
+      <input type="text" id="search-evenimente" placeholder="Cauta evenimente">
+      <button onclick="searchEvenimente()">Cauta</button>
+    </div>
+    <div id="evenimente-container"></div>
   </section>
   <section id="users">
     <h1>Useri</h1>
+    <div class="search-bar">
+      <input type="text" id="search-users" placeholder="Cauta useri">
+      <button onclick="searchUsers()">Cauta</button>
+    </div>
     <div id="users-container"></div>
   </section>
 </div>

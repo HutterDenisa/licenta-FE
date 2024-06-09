@@ -8,14 +8,13 @@ html, body {
 .navbar-comp {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 20px;
   background-color: #ffd633;
 }
 
 .navbar-link {
-  margin-right: 20px;
   font-size: larger;
   text-decoration: none;
   color: black;
@@ -25,7 +24,7 @@ html, body {
   color: white;
 }
 
-.container2 {
+.container {
   margin-top: 50px;
   padding: 20px;
 }
@@ -34,12 +33,16 @@ section {
   margin-bottom: 40px;
 }
 
-.eveniment, .user {
+.anunt, .eveniment, .user {
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px 0;
   border-radius: 10px;
   background-color: rgba(255, 214, 51, 0.9);
+}
+
+.user {
+  background-color: rgba(200, 200, 200, 0.9);
 }
 
 button {
@@ -51,4 +54,24 @@ button {
   background-color: #ffa31a;
   color: black;
   height: 35px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #ffa31a;
+  color: black;
+  border: none;
+  cursor: pointer;
 }

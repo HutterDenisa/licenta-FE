@@ -9,9 +9,9 @@
   <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>
   <script src="adaugarevenimente.js"></script>
 </head>
-<body style="background-color:#ccffcc">
+<body style="background-color:#e6f2ff">
 
-<div class="container2">
+<div class="container">
   <h2>Adaugare Eveniment</h2>
   <form id="anuntForm">
     <label for="title">Titlu:</label>
@@ -24,19 +24,15 @@
     <input type="text" id="locatie" name="locatie" required>
 
     <label for="descriere">Descriere:</label>
-    <input type="text" id="descriere" name="descriere" required>
-
+    <textarea id="descriere" name="descriere" required></textarea>
 
     <label for="image1">Imagine1:</label>
-    <input type="file" id="image1" name="image1" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
-
+    <input type="file" id="image1" name="image1" accept="image/*" required class="custom-file-input">
 
     <button type="button" onclick="submitForm()">Adauga Eveniment</button>
     <button class="back-button" onclick="back()">Inapoi</button>
   </form>
 </div>
-
-
 
 </body>
 </html>

@@ -53,45 +53,45 @@ function initializePage() {
     const userUrl = `http://localhost:8080/users/user/${userId}`;
 
     fetch(userUrl)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error(`Request failed with status: ${response.status}`);
-        }
-      })
-      .then(userData => {
-        const userName = userData.username; // Asumăm că numele utilizatorului este disponibil în răspuns
-        const userRole = userData.role; // Asumăm că rolul este de asemenea disponibil
-        localStorage.setItem('userName', userName); // Salvează numele utilizatorului în Local Storage
-        displayWelcomeMessage(userName, userRole); // Modificată pentru a include rolul
-        getAnunturi(userId);
-      })
-      .catch(error => console.error('Error fetching user data:', error));
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error(`Request failed with status: ${response.status}`);
+          }
+        })
+        .then(userData => {
+          const userName = userData.username; // Asumăm că numele utilizatorului este disponibil în răspuns
+          const userRole = userData.role; // Asumăm că rolul este de asemenea disponibil
+          localStorage.setItem('userName', userName); // Salvează numele utilizatorului în Local Storage
+          displayWelcomeMessage(userName, userRole); // Modificată pentru a include rolul
+          getAnunturi(userId);
+        })
+        .catch(error => console.error('Error fetching user data:', error));
   }
 
   function getAnunturi(userId) {
     const url = `${apiUrl}/userId/${userId}`;
 
     fetch(url)
-      .then(response => {
-        console.log("Response status:", response.status);
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error(`Request failed with status: ${response.status}`);
-        }
-      })
-      .then(data => {
-        if (Array.isArray(data)) {
-          console.log("Data received:", data);
-          displayAnunturi(data);
-        } else {
-          console.log("Single data received:", data);
-          displayAnunturi([data]); // Convert single object to an array
-        }
-      })
-      .catch(error => console.error('Eroare la obținerea datelor:', error));
+        .then(response => {
+          console.log("Response status:", response.status);
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error(`Request failed with status: ${response.status}`);
+          }
+        })
+        .then(data => {
+          if (Array.isArray(data)) {
+            console.log("Data received:", data);
+            displayAnunturi(data);
+          } else {
+            console.log("Single data received:", data);
+            displayAnunturi([data]); // Convert single object to an array
+          }
+        })
+        .catch(error => console.error('Eroare la obținerea datelor:', error));
   }
 
   // Funcția pentru afișarea anunțurilor
@@ -141,12 +141,12 @@ function initializePage() {
 
     const details = ['tip', 'rasa', 'gen', 'culoare', 'varsta', 'oras', 'adresa', 'tipAnunt'];
     details.forEach(detail => {
-          if (anunt[detail]) {
-              const detailElement = document.createElement('p');
-              detailElement.textContent = `${detail.charAt(0).toUpperCase() + detail.slice(1)}: ${anunt[detail]}`;
-              detailElement.style.textAlign = 'left';
-              container.appendChild(detailElement);
-          }
+      if (anunt[detail]) {
+        const detailElement = document.createElement('p');
+        detailElement.textContent = `${detail.charAt(0).toUpperCase() + detail.slice(1)}: ${anunt[detail]}`;
+        detailElement.style.textAlign = 'left';
+        container.appendChild(detailElement);
+      }
     });
 
     const sellerNameElement = document.createElement('p');
@@ -218,17 +218,17 @@ function initializePage() {
       // Trimite o cerere de ștergere către backend
       const deleteUrl = `${apiUrl}/id/${anuntId}`;
       fetch(deleteUrl, { method: 'DELETE' })
-        .then(response => {
-          if (response.ok) {
-            // Actualizează interfața după ștergere
-            console.log(`Anunt ${anuntId} a fost șters.`);
-            // Reîncarcă pagina sau actualizează lista anunțurilor în alt mod
-            location.reload();
-          } else {
-            throw new Error(`Request failed with status: ${response.status}`);
-          }
-        })
-        .catch(error => console.error('Eroare la ștergerea anunțului:', error));
+          .then(response => {
+            if (response.ok) {
+              // Actualizează interfața după ștergere
+              console.log(`Anunt ${anuntId} a fost șters.`);
+              // Reîncarcă pagina sau actualizează lista anunțurilor în alt mod
+              location.reload();
+            } else {
+              throw new Error(`Request failed with status: ${response.status}`);
+            }
+          })
+          .catch(error => console.error('Eroare la ștergerea anunțului:', error));
     }
   }
 
@@ -391,6 +391,4 @@ function getStatistica() {
 
 
 
- document.addEventListener("DOMContentLoaded", initializePage);
-
-
+document.addEventListener("DOMContentLoaded", initializePage);

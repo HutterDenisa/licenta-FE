@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>
   <script src="adaugareanunturi.js"></script>
 </head>
-<body style="background-color:#ccffcc">
+<body style="background: linear-gradient(#66ccff,#ffccff);">
 
 <div class="container">
   <h2>Adaugare Anunt</h2>
@@ -42,10 +42,10 @@
     <textarea id="description" name="description" required></textarea>
 
     <label for="image1">Imagine1:</label>
-    <input type="file" id="image1" name="image1" accept="image/*" required style="background-color: white; text-decoration: none; font-size: 15px;">
+    <input type="file" id="image1" name="image1" accept="image/*" required class="custom-file-input">
 
     <label for="tipAnunt">Tipul anuntului</label>
-    <select name="tipAnunt" id="tipAnunt">
+    <select name="tipAnunt" id="tipAnunt" class="custom-select">
       <option value="pierdut">Animal pierdut</option>
       <option value="vanzare">Animal spre vanzare</option>
       <option value="adoptie">Animal spre adoptie</option>

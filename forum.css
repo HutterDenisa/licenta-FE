@@ -3,58 +3,48 @@ body, html {
     background: #f4f4f4;
     padding: 20px;
 }
+/* Add styles for the message container to enable scrolling */
+/* Add styles for the message container to enable scrolling */
+#messages-container {
+    max-height: 400px; /* Adjust as needed */
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
 
+/* Add styles for the message boxes */
 .message-box {
-    background: white;
-    padding: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #f9f9f9;
 }
 
-.email {
-    font-size: 0.9em;
-    color: #666;
+/* Add styles for the reply input container */
+.reply-input-container {
+    margin-top: 10px;
 }
 
-.content {
-    margin-top: 5px;
+.reply-box {
+    margin-top: 10px;
+    padding: 10px;
+    border-left: 2px solid #007bff;
+    background-color: #e9ecef;
+    border-radius: 5px;
 }
 
 .reply-button {
-    padding: 6px 12px;
-    background-color: #4CAF50;
+    margin-top: 10px;
+    display: block;
+    background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 5px 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.message-input-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    padding: 10px;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-}
-
-.message-input-container textarea {
-    width: 90%;
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: none; /* Prevent resizing the textarea */
-}
-
-.message-input-container button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right; /* Align the button to the right */
+.reply-button:hover {
+    background-color: #218838;
 }
