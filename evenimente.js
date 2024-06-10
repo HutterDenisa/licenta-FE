@@ -114,7 +114,12 @@ function initializePage() {
         const navbar = document.getElementById('myNavbar');
 
         if (token) {
-            navbar.innerHTML = `<a class="navbar-link" href="indexsucces.html">Home</a>`;
+            navbar.innerHTML = `<nav class="navbar-comp" id="myNavbar">
+    <img src="logoFurever.png" alt="Furever Logo">
+    <a class="navbar-link "><a href="index.html" style="text-decoration: none;">Acasa</a></a>
+    <a class="navbar-link "><a href="adaugareanunturi.html" style="text-decoration: none;">Posteaza evenimente</a></a>
+    <a class="navbar-link "><a href="account.html" style="text-decoration: none;">Profil</a></a>
+    </nav>`;
         } else {
             navbar.innerHTML = `<a class="navbar-link" href="login.html">Login</a>`;
         }
@@ -124,7 +129,6 @@ function initializePage() {
         getEvenimente(query);
     }
 
-    // Initialize the page by fetching all announcements
     getEvenimente();
 }
 

@@ -21,7 +21,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#66ccff,#ff9933); /* Color of the scrollbar thumb */
+  background: linear-gradient(#66ccff,#ffccff); /* Color of the scrollbar thumb */
   border-radius: 10px; /* Rounded corners for the thumb */
 }
 
@@ -51,14 +51,14 @@ textarea, button {
   padding: 15px;
   margin: 15px 3px;
   box-sizing: border-box;
-  border: 2px solid #ff9966;
+  border: 2px solid  #66ccff;
   border-radius: 4px;
 }
 
 button,
 input[type="reset"] {
-  background-color: #5cd65c;
-  color: white;
+  background-color: #ffccff;
+  color: black;
   padding: 10px 10px;
   margin-top: 12px;
   border: none;
@@ -68,7 +68,7 @@ input[type="reset"] {
 
 input[type="reset"]:hover,
 button:hover {
-  background-color: #45a049;
+  background-color: #ff80ff;
 }
 
 textarea {
@@ -81,14 +81,14 @@ textarea {
 }
 
 .content-bg {
+  height: 20%; /* Adjust based on actual height requirements */
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 13%;
-  z-index: 1;
 }
+
 
 .Content {
   width: 100%;
@@ -99,15 +99,18 @@ textarea {
 }
 
 .Content ul {
+  padding-left: 100px; /* Adjust this value based on the final size of your logo */
   list-style: none;
   text-align: center;
-  padding: 0;
   margin: 0;
+  position: relative;
+  top: 45px; /* Adjust vertical alignment if necessary */
 }
+
 
 .Content ul li {
   display: inline-block;
-  width: 200px;
+  width: 180px;
   position: relative;
   z-index: 99;
 }
@@ -119,8 +122,18 @@ textarea {
   display: block;
 }
 
+.Content img {
+  height: 550px; /* Increase height */
+  width: auto; /* Maintain aspect ratio */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 100; /* Ensure it's above other content */
+}
+
+
 .Content ul li a:hover {
-  color: orange;
+  color: #66ccff;
 }
 
 .Content ul li:hover > ul {
@@ -136,7 +149,7 @@ textarea {
 }
 
 .Content ul ul li {
-  border-bottom: 1px solid orange;
+  border-bottom: 1px solid  #66ccff;
   border-radius: 0px 10px 10px 0px;
 }
 
@@ -162,7 +175,7 @@ textarea {
 }
 
 .footermenu ul li a:hover {
-  color: orange;
+  color: #ff4dff;
 }
 
 /* ==========================================================================

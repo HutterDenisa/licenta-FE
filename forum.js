@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
+    fetchUserNameAndRole();
     fetchMessages();
 });
+
+function fetchUserNameAndRole() {
+    const userId = localStorage.getItem('userId'); // Ensure userId is stored in localStorage
+    fetch(`http://localhost:8080/users/user/${userId}`)
+        .then(response => response.json())
+        .then(userData => {
+            const userNameElement = document.createElement('span');
+            userNameElement.textContent = `Bine ai venit, ${userData.username}!`;
+
+            if (userData.role === "MEDIC" || userData.role === "CENTRU") {
+                const pawIcon = document.createElement('img');
+                pawIcon.src = 'paw-icon.png'; // Replace with the correct path to your icon
+                pawIcon.alt = 'Paw Icon';
+                pawIcon.className = 'paw-icon';
+                userNameElement.appendChild(pawIcon);
+            }
+
+            document.body.insertBefore(userNameElement, document.getElementById('messages-container'));
+        })
+        .catch(error => console.error('Error fetching user data:', error));
+}
+
 
 function fetchMessages() {
     fetch('http://localhost:8080/mesaj')
@@ -13,13 +36,13 @@ function fetchMessages() {
                 messageDiv.className = 'message-box';
                 messageDiv.setAttribute('data-id', message.id); // Add data-id attribute
                 messageDiv.innerHTML = `
-                    <div class="email">Posted by: ${message.user.email}</div>
+                    <div class="email">Postat de: ${message.user.email}</div>
                     <div class="content">${message.mesaj}</div>
                 `;
                 if (userIsMedic()) { // Add reply button only for MEDIC role
                     const replyButton = document.createElement('button');
                     replyButton.className = 'reply-button';
-                    replyButton.textContent = 'Reply';
+                    replyButton.textContent = 'Răspunde';
                     replyButton.onclick = function() { showReplyInput(message.id); };
                     messageDiv.appendChild(replyButton);
                 }
@@ -44,8 +67,8 @@ function showReplyInput(messageId) {
     const replyContainer = document.createElement('div');
     replyContainer.className = 'reply-input-container';
     replyContainer.innerHTML = `
-        <textarea id="replyInput-${messageId}" placeholder="Write your reply here..." rows="2"></textarea>
-        <button onclick="replyToMessage(${messageId})">Send Reply</button>
+        <textarea id="replyInput-${messageId}" placeholder="Scrie răspunsul tău aici..." rows="2"></textarea>
+        <button onclick="replyToMessage(${messageId})">Trimite răspunsul</button>
     `;
     messageDiv.appendChild(replyContainer);
 }
@@ -53,7 +76,7 @@ function showReplyInput(messageId) {
 function replyToMessage(messageId) {
     const replyContent = document.getElementById(`replyInput-${messageId}`).value;
     if (!replyContent.trim()) {
-        alert('Please write a reply.');
+        alert('Scrie un răspuns');
         return;
     }
 
@@ -121,7 +144,7 @@ function addMessageToUI(message) {
     if (userIsMedic()) { // Add reply button for new messages
         const replyButton = document.createElement('button');
         replyButton.className = 'reply-button';
-        replyButton.textContent = 'Reply';
+        replyButton.textContent = 'Răspunde';
         replyButton.onclick = function() { showReplyInput(message.id); };
         messageDiv.appendChild(replyButton);
     }

@@ -5,23 +5,49 @@ html, body {
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#66ccff,#ffe066); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
 .navbar-comp {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #ffd633;
+  padding: 10px;
+  background-color: rgba(255, 214, 51, 0.9);
+  height: 60px; /* Adjust height if necessary */
 }
 
-.navbar-link {
-  font-size: larger;
+.navbar-comp img {
+  height: 120px; /* Adjust height to keep items in line */
+  width: auto;
+  margin-right: 20px;
+}
+
+.navbar-link, .navbar-comp a {
+  color: black; /* Match index color */
+  margin-right: 20px;
+  font-size: 30px; /* Ensure font size matches the index page */
+  font-weight: bold; /* Make the text bold */
   text-decoration: none;
-  color: black;
+  cursor: pointer; /* Ensures the cursor changes to pointer on hover */
 }
 
-.navbar-link:hover {
-  color: white;
+.navbar-comp a:hover {
+  color: #66ccff; /* Match hover color effect from the index page */
+  cursor: pointer; /* Reinforces that the link is clickable */
 }
 
 .container {
@@ -54,6 +80,18 @@ button {
   background-color: #ffa31a;
   color: black;
   height: 35px;
+}
+
+#logoutButton {
+  border: #333;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgba(255, 214, 51, 0.9);
+  color: black;
+  height: 45px;
+  margin: 20px 0;  /* Adds margin above and below the button for spacing */
+  display: block;  /* Makes the button a block-level element */
 }
 
 .search-bar {

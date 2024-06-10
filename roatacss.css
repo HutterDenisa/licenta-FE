@@ -14,6 +14,20 @@ body, html {
   font-family: Arial, sans-serif;
 }
 
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#66ccff,#ffccff); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
 .main-container {
   display: flex;
   justify-content: space-around; /* Ensures balanced distribution */

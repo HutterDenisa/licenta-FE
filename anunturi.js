@@ -46,6 +46,7 @@ function initializePage() {
       const imageElement = document.createElement('img');
       const imageName = anunt.imagePath1.split('/').pop();
       imageElement.src = `${backendImageUrl}${imageName}`;
+      imageElement.className='icon';
       imageElement.alt = 'Announcement Image';
       container.appendChild(imageElement);
     }
@@ -116,7 +117,11 @@ function initializePage() {
     const navbar = document.getElementById('myNavbar');
 
     if (token) {
-      navbar.innerHTML = `<a class="navbar-link" href="indexsucces.html">Home</a>`;
+      navbar.innerHTML = `<nav class="navbar-comp" id="myNavbar">
+  <img src="logoFurever.png" alt="Furever Logo">
+  <a class="navbar-link" href="index.html" style="text-decoration: none;">Acasa</a>
+  <a class="navbar-link" href="adaugareanunturi.html" style="text-decoration: none;">Posteaza anunt</a>
+<a class="navbar-link" href="account.html" style="text-decoration: none;">Profil</a>`;
     } else {
       navbar.innerHTML = `<a class="navbar-link" href="login.html">Login</a>`;
     }

@@ -5,17 +5,48 @@ html, body {
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#66ccff,#ffe066); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
 .navbar-comp {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 214, 51, 0.9);
+  height: 120px; /* Adjust height if necessary */
 }
 
-.navbar-link {
+.navbar-comp img {
+  height: 100px; /* Adjust height to keep items in line */
+  width: auto;
   margin-right: 20px;
+}
+
+.navbar-link, .navbar-comp a {
+  color: black; /* Match index color */
+  margin-right: 20px;
+  font-size: 30px; /* Ensure font size matches the index page */
+  font-weight: bold; /* Make the text bold */
+  text-decoration: none;
+  cursor: pointer; /* Ensures the cursor changes to pointer on hover */
+}
+
+.navbar-comp a:hover {
+  color: #66ccff; /* Match hover color effect from the index page */
+  cursor: pointer; /* Reinforces that the link is clickable */
 }
 
 .container {
@@ -23,11 +54,11 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px; /* Add gap to handle spacing between items */
+  gap: 10px;
 }
 
 .anunt {
-  flex: 1 1 calc(33.333% - 20px); /* Ensure max 3 items per row */
+  flex: 1 1 calc(33.333% - 20px);
   margin: 10px;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -35,20 +66,12 @@ html, body {
   text-align: center;
   background-color: rgba(255, 214, 51, 0.9);
   border-radius: 10px;
-  max-width: 300px; /* Optionally limit the max width */
+  max-width: 300px;
 }
 
 .anunt img {
-  max-width: 100%; /* Ensure images are responsive */
+  max-width: 100%;
   height: auto;
-}
-
-.h2 {
-  align-self: center;
-}
-
-.p {
-  text-align: left;
 }
 
 @media only screen and (min-width: 768px) {
@@ -57,7 +80,7 @@ html, body {
   }
 
   .anunt {
-    flex: 1 1 calc(33.333% - 20px); /* Ensure max 3 items per row */
+    flex: 1 1 calc(33.333% - 20px);
   }
 }
 
@@ -67,70 +90,38 @@ html, body {
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    display: flex;
-    justify-content: flex-start;
-    background-color: #ffd633;
   }
 
-  .navbar-link {
-    margin-left: 200px;
+  .navbar-link, .navbar-comp a {
     margin-top: 10px;
     text-align: center;
-    font-size: larger;
-    text-decoration: none;
-  }
-
-  .navbar-comp a:hover {
-    color: white;
+    font-size: larger; /* Adjust if necessary for mobile view */
   }
 
   .anunt {
-    flex: 1 1 100%; /* Ensure full width on small screens */
+    flex: 1 1 100%; /* Full width on small screens */
   }
-}
-
-.navbar-comp {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: #ffd633;
-  height: 200px;
-}
-
-.navbar-link {
-  margin-right: 20px;
-  font-size: larger;
-  text-decoration: none;
-}
-
-.navbar-comp a:hover {
-  color: white;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  font-size: large;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 #logoutButton {
   border: #333;
   padding: 10px 15px;
   cursor: pointer;
-  margin-top: 10px;
   border-radius: 10px;
-  background-color: #ffa31a;
+  background-color: rgba(255, 214, 51, 0.9);
   color: black;
   height: 45px;
+  margin: 20px 0;  /* Adds margin above and below the button for spacing */
+  display: block;  /* Makes the button a block-level element */
 }
+
 #user-name {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+* {
+  box-sizing: border-box;
 }

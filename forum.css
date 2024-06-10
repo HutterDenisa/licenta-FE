@@ -1,50 +1,196 @@
 body, html {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ececec 25%, #f8f8f8 100%);
     padding: 20px;
+    margin: 0;
+    color: #333;
+    box-sizing: border-box;
 }
-/* Add styles for the message container to enable scrolling */
-/* Add styles for the message container to enable scrolling */
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#66ccff,#ffccff); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Stiluri pentru containerul mesajelor pentru a permite derularea */
 #messages-container {
-    max-height: 400px; /* Adjust as needed */
+    max-height: 400px; /* Ajustează după necesitate */
     overflow-y: scroll;
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Add styles for the message boxes */
+/* Bara de derulare personalizată */
+#messages-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+#messages-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#messages-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+#messages-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Stiluri pentru casetele de mesaje */
 .message-box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
     background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-/* Add styles for the reply input container */
+.message-box:hover {
+    background-color: #f1f1f1;
+}
+
+/* Eliminare buline albastre */
+.message-box::before {
+    content: none;
+}
+
+/* Stiluri pentru containerul de introducere a mesajelor */
+.message-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    resize: vertical;
+    font-size: 16px;
+    background: #fafafa;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Stiluri pentru butonul de trimitere */
+button {
+    width: 120px;
+    border: none;
+    border-radius: 10px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #1e7e34;
+}
+
+/* Stiluri pentru etichetele de input */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Stiluri pentru input-uri */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #fafafa;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Stiluri pentru titlul paginii */
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Stiluri pentru containerul de răspunsuri */
 .reply-input-container {
     margin-top: 10px;
+    padding: 10px;
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .reply-box {
     margin-top: 10px;
-    padding: 10px;
-    border-left: 2px solid #007bff;
+    padding: 15px;
+    border-left: 3px solid #007bff;
     background-color: #e9ecef;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Adaugă spațiu între box-uri */
 }
 
-.reply-button {
-    margin-top: 10px;
-    display: block;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+.reply-input-container textarea {
+    margin-bottom: 10px; /* Spațiu între textarea și buton */
 }
 
-.reply-button:hover {
-    background-color: #218838;
+/* Stiluri pentru iconul de labuță */
+.paw-icon {
+    width: 25px;
+    height: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
 }

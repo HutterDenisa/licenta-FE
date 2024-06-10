@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const apiUrlUsers = "http://localhost:8080/users";
   const apiUrlEvenimente = "http://localhost:8080/eveniment";
 
+  const logoutButton = document.getElementById('logoutButton');
+  logoutButton.addEventListener('click', function () {
+    // Apelul funcției pentru deconectare
+    logoutUser();
+  });
   // Search functionality setup
   document.getElementById('search-anunturi').addEventListener('input', function () {
     searchAnunturi(this.value.trim());
@@ -28,6 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => displayEvenimente(data))
         .catch(error => console.error('Error searching events:', error));
+  }
+
+  function logoutUser() {
+    // Șterge token-ul, userId-ul și userName-ul din localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userName');
+
+    // Redirecționează utilizatorul la pagina de login
+    window.location.href = 'index.html';
   }
 
   function searchUsers(query) {

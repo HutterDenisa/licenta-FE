@@ -3,37 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AdoptaSalveazaIubeste</title>
+    <title>Evenimente</title>
     <link rel="stylesheet" href="evenimente.css">
 </head>
 
 <body>
 <nav class="navbar-comp" id="myNavbar">
-    <!--  <img class="navbar-logo" height="80px" src="logo2.png" style=" width: 100px; height: 100px; border-radius: 150px 150px 150px 150px;">-->
-    <a class="navbar-link "><a href="index.html" style="text-decoration: none;">Acasa</a></a>
-    <a class="navbar-link "><a href="contact.html" style="text-decoration: none;">Contacteaza-ne!</a></a>
-    <a class="navbar-link "><a href="echipa.html" style="text-decoration: none;">Echipa</a></a>
-    <a class="navbar-link "><a href="anunturi.html" style="text-decoration: none;">Anunturi</a></a>
-    <a class="navbar-link "><a href="adaugareanunturi.html" style="text-decoration: none;">Posteaza anunt</a></a>
-    <a class="navbar-link "><a href="account.html" style="text-decoration: none;">Profil</a></a>
-    <a class="navbar-link "><a href="login.html" style="text-decoration: none;">Conecteaza-te</a></a>
+    <img src="logoFurever.png" alt="Furever Logo">
+    <div class="navbar-links">
+        <a class="navbar-link" href="index.html" style="text-decoration: none;">Acasa</a>
+        <a class="navbar-link" href="adaugareanunturi.html" style="text-decoration: none;">Posteaza evenimente</a>
+        <a class="navbar-link" href="account.html" style="text-decoration: none;">Profil</a>
+    </div>
 </nav>
 
-<div class="search-bar" style="margin-right: 300px;">
-    <input type="text" id="search-input" placeholder="Cauta evenimente" style="margin-left: 975px; margin-top: 20px; margin-right: 20px; height: 35px; border-radius: 10px;">
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Cauta evenimente">
     <button id="searchButton">Cauta</button>
 </div>
+
 <div class="container2" id="container2"></div>
 
 <script src="evenimente.js"></script>
 
 <script>
-    var token= localStorage.getItem('token');
-    if(!token){
-        window.location.href='conectare/login.html'
+    var token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = 'conectare/login.html';
     }
 </script>
 </body>
 </html>
-
-

@@ -3,6 +3,20 @@ body,html {
   font-family: 'Arial', sans-serif;
   transition: background-color 0.5s ease;
 }
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#66ccff,#ffccff); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
 
 .container {
   max-width: 600px;

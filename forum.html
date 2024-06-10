@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Forum Messages</title>
+    <title>Forum</title>
     <link rel="stylesheet" href="forum.css">
 </head>
 <body>
-<div id="messages-container"></div>
-<script src="forum.js"></script>
-<!-- Add below your existing content -->
-<div class="message-input-container">
-    <textarea id="messageInput" placeholder="Write your message here..." rows="3"></textarea>
-    <button onclick="sendMessage()">Send</button>
 
+<div id="welcome-container"></div>
+
+<br>
+
+<h1>Pune întrebarea ta aici și un doctor veterinar îți va răspunde!</h1>
+
+<div id="messages-container"></div>
+
+<div class="message-input-container">
+    <textarea id="messageInput" placeholder="Scrie mesajul aici..." rows="3"></textarea>
+    <button onclick="sendMessage()">Trimite</button>
 </div>
+
+<script src="forum.js"></script>
 
 </body>
 </html>
