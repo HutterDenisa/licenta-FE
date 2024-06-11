@@ -14,7 +14,7 @@
     <a class="navbar-link" href="index.html" style="text-decoration: none;">Acasa</a>
     <a class="navbar-link" href="adaugareanunturi.html" style="text-decoration: none;">Posteaza anunt</a>
     <a class="navbar-link" href="account.html" style="text-decoration: none;">Profil</a>
-  </div>
+    </div>
 </nav>
 
 
