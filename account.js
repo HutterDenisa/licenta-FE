@@ -45,6 +45,15 @@ function initializePage() {
       icon.style = 'width: 24px; height: 24px; margin-left: 10px; vertical-align: middle; display: inline;';
       welcomeContainer.appendChild(icon);
     }
+
+    // Condiționează afișarea secțiunii "Evenimentele tale" și a link-ului "Posteaza eveniment" în navbar
+    if (userRole === "MEDIC" || userRole === "CENTRU") {
+      document.getElementById('evenimente-section').style.display = 'block';
+      document.getElementById('posteaza-eveniment-link').style.display = 'inline';
+    } else {
+      document.getElementById('evenimente-section').style.display = 'none';
+      document.getElementById('posteaza-eveniment-link').style.display = 'none';
+    }
   }
 
 
@@ -237,40 +246,13 @@ function initializePage() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
-    updateNavbar();
+
 
     // Redirecționează utilizatorul la pagina de login
     window.location.href = 'index.html';
   }
 
-  function updateNavbar() {
-    var token = localStorage.getItem('token');
-    var navbar = document.getElementById('myNavbar');
 
-    if (token) {
-      // Utilizatorul este autentificat, afișează "Profil" și ascunde "Conecteaza-te"
-      navbar.innerHTML = `
-                <img class="navbar-logo" height="80px" src="logo2.png" style=" width: 100px; height: 100px; border-radius: 150px 150px 150px 150px;">
-                <a class="navbar-link" href="indexsucces.html">Acasa</a>
-                <a class="navbar-link" href="contact.html">Contacteaza-ne!</a>
-                <a class="navbar-link" href="echipa.html">Echipa</a>
-                <a class="navbar-link" href="anunturi.html">Anunturi</a>
-                <a class="navbar-link" href="formularanunturi.html">Posteaza anunt</a>
-                <a class="navbar-link" href="account.html">Profil</a>
-            `;
-    } else {
-      // Utilizatorul nu este autentificat, afișează "Conecteaza-te" și ascunde "Profil"
-      navbar.innerHTML = `
-            <img class="navbar-logo" height="80px" src="logo2.png" style=" width: 100px; height: 100px; border-radius: 150px 150px 150px 150px;">
-                <a class="navbar-link" href="index.html">Acasa</a>
-                <a class="navbar-link" href="contact.html">Contacteaza-ne!</a>
-                <a class="navbar-link" href="echipa.html">Echipa</a>
-                <a class="navbar-link" href="anunturi.html">Anunturi</a>
-                <a class="navbar-link" href="formularanunturi.html">Posteaza anunt</a>
-                <a class="navbar-link" href="login.html" style="text-decoration: none;">Conecteaza-te</a>
-            `;
-    }
-  }
   getStatistica();
 
 
@@ -384,11 +366,5 @@ function getStatistica() {
       })
       .catch(error => console.error('Eroare la obținerea datelor:', error));
 }
-
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", initializePage);

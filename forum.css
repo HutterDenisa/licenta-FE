@@ -9,16 +9,16 @@ body, html {
 
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
-  width: 15px;
+    width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-  background: white;
+    background: white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#66ccff,#ffccff); /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
+    background: linear-gradient(#66ccff,#ffccff); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
 }
 
 /* Stiluri pentru containerul mesajelor pentru a permite derularea */
@@ -187,10 +187,10 @@ h1 {
     margin-bottom: 10px; /* Spațiu între textarea și buton */
 }
 
-/* Stiluri pentru iconul de labuță */
-.paw-icon {
-    width: 25px;
-    height: 20px;
-    margin-left: 10px;
+
+.paw-icon-email {
+    width: 24px;  /* Adjust the size as needed */
+    height: 16px;
+    margin-left: 5px;
     vertical-align: middle;
 }

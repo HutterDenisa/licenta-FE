@@ -19,11 +19,11 @@ function fetchUserNameAndRole() {
                 userNameElement.appendChild(pawIcon);
             }
 
-            document.body.insertBefore(userNameElement, document.getElementById('messages-container'));
+            document.getElementById('welcome-container').appendChild(userNameElement);
+            localStorage.setItem('userRole', userData.role); // Store user role in localStorage for later use
         })
         .catch(error => console.error('Error fetching user data:', error));
 }
-
 
 function fetchMessages() {
     fetch('http://localhost:8080/mesaj')
@@ -35,10 +35,17 @@ function fetchMessages() {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = 'message-box';
                 messageDiv.setAttribute('data-id', message.id); // Add data-id attribute
+
+                let emailContent = `Postat de: ${message.user.email}`;
+                if (message.user.role === "MEDIC" || message.user.role === "CENTRU") {
+                    emailContent += ` <img src="paw-icon.png" alt="Paw Icon" class="paw-icon-email">`;
+                }
+
                 messageDiv.innerHTML = `
-                    <div class="email">Postat de: ${message.user.email}</div>
+                    <div class="email">${emailContent}</div>
                     <div class="content">${message.mesaj}</div>
                 `;
+
                 if (userIsMedic()) { // Add reply button only for MEDIC role
                     const replyButton = document.createElement('button');
                     replyButton.className = 'reply-button';
@@ -137,10 +144,17 @@ function addMessageToUI(message) {
     const messageDiv = document.createElement('div');
     messageDiv.className = 'message-box';
     messageDiv.setAttribute('data-id', message.id); // Add data-id attribute
+
+    let emailContent = `Postat de: ${message.user.email}`;
+    if (message.user.role === "MEDIC" || message.user.role === "CENTRU") {
+        emailContent += ` <img src="paw-icon.png" alt="Paw Icon" class="paw-icon-email">`;
+    }
+
     messageDiv.innerHTML = `
-        <div class="email">Posted by: ${message.user.email}</div>
+        <div class="email">${emailContent}</div>
         <div class="content">${message.mesaj}</div>
     `;
+
     if (userIsMedic()) { // Add reply button for new messages
         const replyButton = document.createElement('button');
         replyButton.className = 'reply-button';
