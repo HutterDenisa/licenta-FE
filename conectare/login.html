@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Conectare</title>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&amp;family=IBM+Plex+Mono:wght@500&amp;display=block" rel="stylesheet">
+  <link rel="icon" href="logoFurever.png" sizes="64x64" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 
@@ -15,22 +17,21 @@
     <div class="auth-sidebar-content">
       <img src="adoptie.png" style="height: 100%">
     </div>
-
   </section>
 
-
   <section class="auth-main-content" style="margin-left: 140px">
-    <h1 style="font-family: sans-serif;margin-left: 200px;margin-bottom: 50px">Conecteaza-te!</h1>
+    <h1 style="font-family: sans-serif; margin-left: 170px; margin-bottom: 50px;">Conectează-te!</h1>
     <form id="loginForm" action="" method="post">
-
-      <label for="email" >Email:</label>
+      <label for="email">Email:</label>
       <input type="text" id="email" name="email" required>
 
       <label for="password">Parola:</label>
       <input type="password" id="password" name="password" required>
+      <br>
+      <br>
 
       <button type="button" onclick="loginForm()">Conectare</button>
-      <h3 style="text-align: center;font-family: sans-serif">Nu ai cont?</h3>
+      <h3 style="text-align: center; font-family: sans-serif">Nu ai cont?</h3>
       <button type="button" onclick="toSignup()">Inregistrare</button>
     </form>
   </section>

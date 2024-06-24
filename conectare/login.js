@@ -31,7 +31,7 @@ function loginForm() {
 
         localStorage.setItem('token', data.token);
         localStorage.setItem('userId', data.userId);
-        localStorage.setItem('userRole', 'MEDIC'); // Exemplu pentru setarea rolului de MEDIC
+        localStorage.setItem('userRole', 'MEDIC');
 
 
 

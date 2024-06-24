@@ -7,14 +7,14 @@
 body, html {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Prevents showing content outside the visible area */
-  margin: 0; /* Removes default margins */
-  padding: 0; /* Removes default padding */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
   background: #ecc6d9;
   font-family: Arial, sans-serif;
 }
 
-/* Custom scrollbar styles */
+
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -24,14 +24,14 @@ body, html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#66ccff,#ffccff); /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
+  background: linear-gradient(#66ccff,#ffccff);
+  border-radius: 10px;
 }
 
 .main-container {
   display: flex;
-  justify-content: space-around; /* Ensures balanced distribution */
-  align-items: center; /* Aligns items vertically */
+  justify-content: space-around;
+  align-items: center;
   padding: 20px;
   width: 100%;
   height: 100%;
@@ -39,8 +39,8 @@ body, html {
 
 .wheel-container {
   position: relative;
-  width: 350px; /* Adjust based on your wheel size */
-  height: 350px; /* Should be a square */
+  width: 350px;
+  height: 350px;
   border-radius: 150px;
 }
 
@@ -64,11 +64,11 @@ body, html {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  outline: none;  /* Disables the default focus outline */
+  outline: none;
 }
 
 .form-container input:focus {
-  border-color: #f8d7e8;  /* Soft pink border on focus */
+  border-color: #f8d7e8;
 }
 
 .form-container button {
@@ -143,8 +143,8 @@ body, html {
 }
 
 .mid {
-  height: 20px; /* Smaller size for the mid circle */
-  width: 20px; /* Smaller size for the mid circle */
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   background: #660066;
   position: absolute;
@@ -156,26 +156,26 @@ body, html {
 
 
 .stopper {
-  position: absolute; /* Ensures the stopper is positioned relative to the nearest positioned ancestor */
-  top: 50%; /* Centers it vertically */
-  left: 50%; /* Centers it horizontally */
-  transform: translate(-50%, -50%); /* Shifts the stopper back by half its width and height to truly center it */
-  width: 20px; /* Adjusts the width as needed */
-  height: 20px; /* Adjusts the height as needed */
-  border-radius: 50%; /* Makes the stopper circular */
-  background-color: black; /* Sets the color to black */
-  z-index: 2; /* Ensures it appears above other elements */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  z-index: 2;
 }
 
 .triangle {
   position: absolute;
-  top: -15px; /* Slightly higher to accommodate larger triangle */
+  top: -15px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 15px 15px 0 15px; /* Larger triangle */
+  border-width: 15px 15px 0 15px;
   border-color: white transparent transparent transparent;
   z-index: 3;
 }

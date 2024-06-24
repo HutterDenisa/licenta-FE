@@ -1,7 +1,7 @@
 function initializePage() {
 
   if (!localStorage.getItem('token') || !localStorage.getItem('userId')) {
-    // Utilizatorul nu este autentificat, redirectionare către pagina de login
+
     window.location.href = 'conectare/login.html';
   }
 
@@ -23,21 +23,21 @@ function initializePage() {
 
   const logoutButton = document.getElementById('logoutButton');
   logoutButton.addEventListener('click', function () {
-    // Apelul funcției pentru deconectare
+
     logoutUser();
   });
 
-  // Funcția pentru afișarea mesajului de bun venit
+
   function displayWelcomeMessage(userName, userRole) {
     const welcomeContainer = document.getElementById('user-name');
     const welcomeMessage = document.createElement('h1');
     welcomeMessage.textContent = `Bine ai venit, ${userName}` + '!';
-    welcomeMessage.style = 'text-align: center; display: inline;';  // Modificat pentru aliniere
+    welcomeMessage.style = 'text-align: center; display: inline;';
 
-    // Adaugă mesajul de bun venit în container
+
     welcomeContainer.appendChild(welcomeMessage);
 
-    // Verifică rolul utilizatorului și adaugă iconul dacă este necesar
+
     if (userRole === "MEDIC" || userRole === "CENTRU") {
       const icon = document.createElement('img');
       icon.src = 'paw-icon.png';  // Verifică această cale
@@ -46,7 +46,7 @@ function initializePage() {
       welcomeContainer.appendChild(icon);
     }
 
-    // Condiționează afișarea secțiunii "Evenimentele tale" și a link-ului "Posteaza eveniment" în navbar
+
     if (userRole === "MEDIC" || userRole === "CENTRU") {
       document.getElementById('evenimente-section').style.display = 'block';
       document.getElementById('posteaza-eveniment-link').style.display = 'inline';
@@ -57,7 +57,6 @@ function initializePage() {
   }
 
 
-  // Funcția pentru a obține numele utilizatorului din server
   function getUserName(userId) {
     const userUrl = `http://localhost:8080/users/user/${userId}`;
 
@@ -70,10 +69,10 @@ function initializePage() {
           }
         })
         .then(userData => {
-          const userName = userData.username; // Asumăm că numele utilizatorului este disponibil în răspuns
-          const userRole = userData.role; // Asumăm că rolul este de asemenea disponibil
-          localStorage.setItem('userName', userName); // Salvează numele utilizatorului în Local Storage
-          displayWelcomeMessage(userName, userRole); // Modificată pentru a include rolul
+          const userName = userData.username;
+          const userRole = userData.role;
+          localStorage.setItem('userName', userName);
+          displayWelcomeMessage(userName, userRole);
           getAnunturi(userId);
         })
         .catch(error => console.error('Error fetching user data:', error));
@@ -97,24 +96,24 @@ function initializePage() {
             displayAnunturi(data);
           } else {
             console.log("Single data received:", data);
-            displayAnunturi([data]); // Convert single object to an array
+            displayAnunturi([data]);
           }
         })
         .catch(error => console.error('Eroare la obținerea datelor:', error));
   }
 
-  // Funcția pentru afișarea anunțurilor
+
   function displayAnunturi(anunturi) {
     console.log("Anunturi primite:", anunturi);
 
     const anunturiList = document.getElementById('container');
 
-    // Sterge anunțurile existente (dacă există)
+
     while (anunturiList.firstChild) {
       anunturiList.removeChild(anunturiList.firstChild);
     }
 
-    // Adaugă anunțurile noi
+
     anunturi.forEach(anunt => {
       const anuntElement = createAnuntElement(anunt);
       anunturiList.appendChild(anuntElement);
@@ -130,14 +129,14 @@ function initializePage() {
     titleElement.textContent = anunt.name;
 
     const imageElement = document.createElement('img');
-    if (anunt.imagePath1) {  // Verificăm dacă există calea imaginii
+    if (anunt.imagePath1) {
       const imagePath = anunt.imagePath1;
       const imageName = imagePath.split('/').pop();
       imageElement.src = backendImageUrl + imageName;
       imageElement.alt = anunt.name;
     } else {
-      // Setează o imagine implicită în cazul în care anunt.imagePath1 este undefined
-      imageElement.src = 'path_to_default_image.jpg'; // Poți înlocui cu calea reală către imaginea implicită
+
+      imageElement.src = 'path_to_default_image.jpg';
       imageElement.alt = 'Default Image';
     }
 
@@ -203,7 +202,7 @@ function initializePage() {
         .then(response => response.json())
         .then(updatedAnunt => {
           console.log(`Like status changed for Anunt ${anuntId}. New nrLikes: ${updatedAnunt.nrLikes}`);
-          // Actualizează interfața cu noul număr de "like"-uri
+
           updateLikeButton(anuntId, updatedAnunt.nrLikes, updatedAnunt.likedByCurrentUser);
         })
         .catch(error => console.error('Eroare la adăugarea like-ului:', error));
@@ -216,7 +215,7 @@ function initializePage() {
   }
 
   function handleEditButtonClick(anuntId) {
-    // Redirecționează utilizatorul către pagina de editare, trimițând ID-ul anunțului
+
     window.location.href = `editAnunt.html?id=${anuntId}`;
   }
 
@@ -224,14 +223,14 @@ function initializePage() {
     const confirmation = confirm('Ești sigur că vrei să ștergi acest anunț?');
 
     if (confirmation) {
-      // Trimite o cerere de ștergere către backend
+
       const deleteUrl = `${apiUrl}/id/${anuntId}`;
       fetch(deleteUrl, { method: 'DELETE' })
           .then(response => {
             if (response.ok) {
-              // Actualizează interfața după ștergere
+
               console.log(`Anunt ${anuntId} a fost șters.`);
-              // Reîncarcă pagina sau actualizează lista anunțurilor în alt mod
+
               location.reload();
             } else {
               throw new Error(`Request failed with status: ${response.status}`);
@@ -242,13 +241,11 @@ function initializePage() {
   }
 
   function logoutUser() {
-    // Șterge token-ul, userId-ul și userName-ul din localStorage
+
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
 
-
-    // Redirecționează utilizatorul la pagina de login
     window.location.href = 'index.html';
   }
 
@@ -262,7 +259,7 @@ function initializePage() {
 function displayStatistica(statistica) {
   const ctx = document.getElementById('myChart').getContext('2d');
 
-  // Convert your string timestamps into Date objects
+
   const timestamps = [
     new Date(statistica.t1),
     new Date(statistica.t2),
@@ -289,7 +286,7 @@ function displayStatistica(statistica) {
     statistica.act10
   ];
 
-  // Create a line chart with time on x-axis and activity on y-axis
+
   const myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -351,7 +348,7 @@ function getStatistica() {
         if (response.ok) {
           return response.text().then(text => {
             try {
-              return JSON.parse(text); // Manually parse the text to JSON
+              return JSON.parse(text);
             } catch (error) {
               console.error('Error parsing JSON:', text);
               throw new Error('Invalid JSON response');

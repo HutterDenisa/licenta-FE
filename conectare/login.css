@@ -34,7 +34,7 @@ body {
   padding: 40px;
 }
 
-/* Additional styles for the login form */
+
 #loginForm {
   display: flex;
   flex-direction: column;

@@ -6,7 +6,6 @@ html, body {
 }
 
 
-/* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -16,8 +15,8 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#66ccff,#ffe066); /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
+  background: linear-gradient(#66ccff, #ffe066);
+  border-radius: 10px;
 }
 
 .navbar-comp {
@@ -27,27 +26,27 @@ html, body {
   align-items: center;
   padding: 10px;
   background-color: rgba(255, 214, 51, 0.9);
-  height: 60px; /* Adjust height if necessary */
+  height: 60px;
 }
 
 .navbar-comp img {
-  height: 120px; /* Adjust height to keep items in line */
+  height: 120px;
   width: auto;
   margin-right: 20px;
 }
 
 .navbar-link, .navbar-comp a {
-  color: black; /* Match index color */
+  color: black;
   margin-right: 20px;
-  font-size: 30px; /* Ensure font size matches the index page */
-  font-weight: bold; /* Make the text bold */
+  font-size: 30px;
+  font-weight: bold;
   text-decoration: none;
-  cursor: pointer; /* Ensures the cursor changes to pointer on hover */
+  cursor: pointer;
 }
 
 .navbar-comp a:hover {
-  color: #66ccff; /* Match hover color effect from the index page */
-  cursor: pointer; /* Reinforces that the link is clickable */
+  color: #66ccff;
+  cursor: pointer;
 }
 
 .container {
@@ -90,8 +89,12 @@ button {
   background-color: rgba(255, 214, 51, 0.9);
   color: black;
   height: 45px;
-  margin: 20px 0;  /* Adds margin above and below the button for spacing */
-  display: block;  /* Makes the button a block-level element */
+  margin: 20px;
+  display: block;
+}
+
+.logout-container {
+  margin-left: auto;
 }
 
 .search-bar {
@@ -112,4 +115,40 @@ button {
   color: black;
   border: none;
   cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .navbar-comp {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-link, .navbar-comp a {
+    font-size: 20px;
+    margin: 5px 0;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  button, #logoutButton {
+    width: 100%;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
 }

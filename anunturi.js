@@ -68,7 +68,7 @@ function initializePage() {
     userElement.textContent = `Utilizator: ${anunt.user.username}`;
     if (anunt.user.role === "MEDIC" || anunt.user.role === "CENTRU") {
       const icon = document.createElement('img');
-      icon.src = 'paw-icon.png'; // Verificați că calea este corectă
+      icon.src = 'paw-icon.png';
       icon.alt = 'Paw Icon';
       icon.className = 'user-icon';
       userElement.appendChild(icon);
@@ -145,7 +145,7 @@ function initializePage() {
     getAnunturi(query);
   }
 
-  // Initialize the page by fetching all announcements
+
   getAnunturi();
 }
 

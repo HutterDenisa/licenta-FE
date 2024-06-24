@@ -67,7 +67,7 @@ function initializePage() {
         userElement.textContent = `Utilizator: ${eveniment.user.username}`;
         if (eveniment.user.role === "MEDIC" || eveniment.user.role === "CENTRU") {
             const icon = document.createElement('img');
-            icon.src = 'paw-icon.png'; // Verificați că calea este corectă
+            icon.src = 'paw-icon.png';
             icon.alt = 'Paw Icon';
             icon.className = 'user-icon';
             userElement.appendChild(icon);
@@ -88,7 +88,6 @@ function initializePage() {
         return container2;
     }
 
-
     function handleLikeButtonClick(evenimentId) {
         const likeUrl = `${apiUrl}/like/${evenimentId}`;
 
@@ -108,19 +107,35 @@ function initializePage() {
         }
     }
 
-
     function updateNavbar() {
         const token = localStorage.getItem('token');
         const navbar = document.getElementById('myNavbar');
 
         if (token) {
-            navbar.innerHTML = `<nav class="navbar-comp" id="myNavbar">
-    <img src="logoFurever.png" alt="Furever Logo">
-    <a class="navbar-link "><a href="index.html" style="text-decoration: none;">Acasa</a></a>
-    <a class="navbar-link "><a href="adaugareanunturi.html" style="text-decoration: none;">Posteaza evenimente</a></a>
-    <a class="navbar-link "><a href="account.html" style="text-decoration: none;">Profil</a></a>
-    </nav>`;
+            console.log('Token found:', token);
+            fetch('http://localhost:8080/user/profile', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => response.json())
+                .then(user => {
+                    console.log('User profile:', user);
+                    let navbarHTML = `
+                        <img src="logoFurever.png" alt="Furever Logo">
+                        <div class="navbar-links">
+                            <a class="navbar-link" href="index.html" style="text-decoration: none;">Acasa</a>`;
+                    if (user.role === 'MEDIC' || user.role === 'CENTRU') {
+                        console.log('User role allows event posting');
+                        navbarHTML += `<a class="navbar-link" href="adaugarevenimente.html" style="text-decoration: none;">Posteaza evenimente</a>`;
+                    }
+                    navbarHTML += `<a class="navbar-link" href="account.html" style="text-decoration: none;">Profil</a>
+                        </div>`;
+                    navbar.innerHTML = navbarHTML;
+                })
+                .catch(error => console.error('Error fetching user profile:', error));
         } else {
+            console.log('No token found, redirecting to login');
             navbar.innerHTML = `<a class="navbar-link" href="login.html">Login</a>`;
         }
     }

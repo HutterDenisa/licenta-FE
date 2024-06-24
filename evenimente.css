@@ -5,7 +5,7 @@ html, body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-/* Custom scrollbar styles */
+
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -15,11 +15,10 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(#66ccff, #ffe066); /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
+    background: linear-gradient(#66ccff, #ffe066);
+    border-radius: 10px;
 }
 
-/* Navigation bar */
 .navbar-comp {
     display: flex;
     flex-direction: row;
@@ -27,30 +26,30 @@ html, body {
     align-items: center;
     padding: 20px;
     background-color: rgba(255, 214, 51, 0.9);
-    height: 80px; /* Adjust height if necessary */
+    height: 80px;
 }
 
 .navbar-comp img {
-    height: 150px; /* Adjust height to keep items in line */
-    width: 200px;
+    height: 150px;
+    width: auto;
     margin-right: 20px;
 }
 
 .navbar-link, .navbar-comp a {
-    color: black; /* Match index color */
-    margin-right: 130px; /* Increase space between links */
-    font-size: 29px; /* Ensure font size matches the index page */
-    font-weight: bold; /* Make the text bold */
+    color: black;
+    margin-right: 450px;
+    font-size: 29px;
+    font-weight: bold;
     text-decoration: none;
-    cursor: pointer; /* Ensures the cursor changes to pointer on hover */
+    cursor: pointer;
 }
 
 .navbar-comp a:hover {
-    color: #66ccff; /* Match hover color effect from the index page */
-    cursor: pointer; /*Reinforces that the link is clickable */
+    color: #66ccff;
+    cursor: pointer;
 }
 
-/* Container for evenimente */
+
 .container2 {
     margin-top: 50px;
     display: flex;
@@ -71,9 +70,9 @@ button {
 
 .search-bar {
     margin-top: 40px;
-    display: flex; /* Ensures the input and button are aligned next to each other */
+    display: flex;
     align-items: center;
-    justify-content: flex-end; /* Aligns the search bar to the right */
+    justify-content: flex-end;
     margin-bottom: 20px;
 }
 
@@ -82,7 +81,7 @@ button {
     border-radius: 10px;
     border: 1px solid #ccc;
     width: 200px;
-    margin-right: 10px; /* Add space between input and button */
+    margin-right: 10px;
 }
 
 .search-bar button {
@@ -95,8 +94,8 @@ button {
     cursor: pointer;
 }
 
-/* Individual eveniment style */
-.eveniment, .anunt {
+
+.eveniment {
     flex: 0 0 calc(30% - 20px);
     margin: 10px;
     border: 1px solid #ccc;
@@ -109,45 +108,32 @@ button {
     justify-content: space-between;
 }
 
-.eveniment h2, .anunt h2 {
+.eveniment h2 {
     margin: 0;
 }
 
-/* Images within an eveniment */
+
 .images-container {
     position: relative;
     width: 100%;
     margin-top: 10px;
-    flex: 1 0 auto; /* Allows the image container to grow and shrink */
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.images-container img {
-    max-width: 100%;
-    height: 200px; /* Set a fixed height for the images */
-    object-fit: cover; /* Ensures the image covers the area without stretching */
-    border-radius: 10px;
-}
 
-/* Like button */
 .like-button {
-    padding: 5px 10px; /* Make the button smaller */
+    padding: 10px 15px;
     background-color: #ffa31a;
     color: black;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     align-self: center;
-    margin-top: auto; /* Pushes the button to the bottom */
 }
 
 .like-button:hover {
     background-color: #e69500;
 }
 
-/* Responsive design */
 @media only screen and (max-width: 768px) {
     .navbar-comp {
         flex-direction: column;
@@ -159,39 +145,39 @@ button {
     .navbar-link, .navbar-comp a {
         margin-top: 10px;
         text-align: center;
-        font-size: larger; /* Adjust if necessary for mobile view */
+        font-size: larger;
     }
 
-    .eveniment, .anunt {
-        flex: 1 1 100%; /* Full width on small screens */
+    .eveniment {
+        flex: 1 1 100%;
     }
 
     .search-bar {
-        justify-content: center; /* Centers the search bar on small screens */
+        justify-content: center;
     }
 }
 
-.eveniment p, .anunt p {
+.eveniment p {
     display: flex;
     align-items: center;
     margin: 5px 0;
 }
 
-.eveniment img, .anunt img {
-    max-width: 100%; /* Ensure images are responsive */
+.eveniment img {
+    max-width: 100%;
     height: auto;
 }
 
 .user-element {
     display: flex;
-    align-items: center; /* Alinează vertical textul și iconul */
-    gap: 0px; /* Mărește spațiul între text și icon */
-    font-size: 16px; /* Ajustează dimensiunea textului, dacă este necesar */
-    margin-bottom: 10px; /* Asigură spațiu sub text și icon */
+    align-items: center;
+    gap: 0px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .user-icon {
-    width: 34px; /* Ajustează lățimea iconului */
-    height: 24px; /* Ajustează înălțimea iconului */
-    vertical-align: middle; /* Asigură-te că iconul este centrat vertical cu textul */
+    width: 34px;
+    height: 24px;
+    vertical-align: middle;
 }

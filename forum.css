@@ -7,7 +7,7 @@ body, html {
     box-sizing: border-box;
 }
 
-/* Custom scrollbar styles */
+
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -17,13 +17,13 @@ body, html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(#66ccff,#ffccff); /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
+    background: linear-gradient(#66ccff,#ffccff);
+    border-radius: 10px;
 }
 
-/* Stiluri pentru containerul mesajelor pentru a permite derularea */
+
 #messages-container {
-    max-height: 400px; /* Ajustează după necesitate */
+    max-height: 400px;
     overflow-y: scroll;
     border: 1px solid #ddd;
     padding: 15px;
@@ -32,7 +32,7 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Bara de derulare personalizată */
+
 #messages-container::-webkit-scrollbar {
     width: 10px;
 }
@@ -51,7 +51,7 @@ body, html {
     background: #555;
 }
 
-/* Stiluri pentru casetele de mesaje */
+
 .message-box {
     border: 1px solid #ddd;
     padding: 15px;
@@ -66,12 +66,12 @@ body, html {
     background-color: #f1f1f1;
 }
 
-/* Eliminare buline albastre */
+
 .message-box::before {
     content: none;
 }
 
-/* Stiluri pentru containerul de introducere a mesajelor */
+
 .message-input-container {
     display: flex;
     flex-direction: column;
@@ -103,7 +103,7 @@ textarea:focus {
     outline: none;
 }
 
-/* Stiluri pentru butonul de trimitere */
+
 button {
     width: 120px;
     border: none;
@@ -125,7 +125,7 @@ button:active {
     background-color: #1e7e34;
 }
 
-/* Stiluri pentru etichetele de input */
+
 label {
     display: block;
     margin-bottom: 5px;
@@ -133,7 +133,7 @@ label {
     color: #555;
 }
 
-/* Stiluri pentru input-uri */
+
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -154,7 +154,7 @@ input[type="password"]:focus {
     outline: none;
 }
 
-/* Stiluri pentru titlul paginii */
+
 h1 {
     color: #333;
     text-align: center;
@@ -163,7 +163,7 @@ h1 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Stiluri pentru containerul de răspunsuri */
+
 .reply-input-container {
     margin-top: 10px;
     padding: 10px;
@@ -180,16 +180,16 @@ h1 {
     background-color: #e9ecef;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px; /* Adaugă spațiu între box-uri */
+    margin-bottom: 15px;
 }
 
 .reply-input-container textarea {
-    margin-bottom: 10px; /* Spațiu între textarea și buton */
+    margin-bottom: 10px;
 }
 
 
 .paw-icon-email {
-    width: 24px;  /* Adjust the size as needed */
+    width: 24px;
     height: 16px;
     margin-left: 5px;
     vertical-align: middle;

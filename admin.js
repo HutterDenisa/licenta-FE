@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const logoutButton = document.getElementById('logoutButton');
   logoutButton.addEventListener('click', function () {
-    // Apelul funcției pentru deconectare
+
     logoutUser();
   });
   // Search functionality setup
@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function logoutUser() {
-    // Șterge token-ul, userId-ul și userName-ul din localStorage
+
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
 
-    // Redirecționează utilizatorul la pagina de login
+
     window.location.href = 'index.html';
   }
 
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let nameWithRole = user.username;
       if (user.role === 'MEDIC' || user.role === 'CENTRU') {
-        nameWithRole += ' <i class="fas fa-paw"></i>'; // Append the paw icon only if the role is MEDIC or CENTRU
+        nameWithRole += ' <i class="fas fa-paw"></i>';
       }
 
       userElement.innerHTML = `
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initial fetch calls
+
   getAnunturi();
   getEvenimente();
   getUsers();

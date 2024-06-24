@@ -1,4 +1,4 @@
-// Function to fetch filtered data from the API
+
 async function fetchFilteredData(filters) {
   try {
     const { culoare, gen, oras, tip } = filters;
@@ -16,12 +16,12 @@ async function fetchFilteredData(filters) {
 
 document.querySelectorAll('.form-container input').forEach(input => {
   input.addEventListener('focus', function() {
-    this.style.boxShadow = '0 0 0 30px white inset'; // Forces the background to remain white
-    this.style.borderColor = '#f8d7e8'; // Sets focus border color
+    this.style.boxShadow = '0 0 0 30px white inset';
+    this.style.borderColor = '#f8d7e8';
   });
   input.addEventListener('input', function() {
-    this.style.backgroundColor = 'white'; // Ensures the background stays white even after input
-    this.style.color = '#333'; // Ensures text color stays consistent
+    this.style.backgroundColor = 'white';
+    this.style.color = '#333';
   });
 });
 
@@ -109,6 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
     anuntElement.appendChild(usernameElement);
 
     resultContainer.appendChild(anuntElement);
-    resultContainer.style.display = 'block'; // Afișează containerul rezultatului
+    resultContainer.style.display = 'block';
   }
 });
